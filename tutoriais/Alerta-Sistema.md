@@ -1,6 +1,6 @@
-# Título do Tutorial
+# Sistema de Alerta com Arduino Uno R3
 
-**Descrição:** Breve introdução ao tutorial, explicando o objetivo do projeto, as habilidades que serão adquiridas e o público-alvo. Ex.: "Neste tutorial, vamos desenvolver um sistema de monitoramento de sinais vitais usando uma ESP32 com sensores de temperatura e frequência cardíaca."
+**Descrição:** Criação de um circuito utilizando Arduino Uno R3 para indicar um estado de socorro de um paciente, por meio de uma botão.
 
 ---
 
@@ -18,7 +18,7 @@
 ---
 
 ## Introdução
-
+O princípio deste circuito está na possibilidade de acionar uma equipe médica o mais rapido possível. Assim caso ocorra algum acidente como queda, piora repentina de algum sintoma e entre outros incidentes o paciente pode ligeiramente acionar o socorro. Dessa maneira, como se trata de um circuito simples pode ser facilmente instalado em casa de pessoas que necessitam de supervisionamento.
 Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monitoramento de sinais vitais em tempo real para pacientes, ou um sistema de alarme para quedas. Inclua uma breve visão sobre como o projeto se integra ao ambiente IoT.
 
 ---
@@ -27,16 +27,16 @@ Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monito
 
 ### Hardware
 
-- **Placa**: Arduino, ESP32, Raspberry Pi
-- **Sensores**: Detalhe cada sensor, como sensores de temperatura, oxímetro, acelerômetro, entre outros
-- **Atuadores**: Como LEDs, buzzer, relés, etc.
-- **Outros componentes**: Jumpers, resistores, display LCD, etc.
+- **Placa**: Arduino Uno R3;
+- **Sensores**: Botão;
+- **Atuadores**: Dois Led's (Verde: Estado Normal; Vermelho: Estado Emergência);
+- **Outros componentes**: Protoboard(fins educacionais), 5 resistores ( 3 de 330ohms e 2 de 1kohms), jumpers, 1 Lcd.
 
 ### Software
 
-- **Linguagens**: C/C++ para Arduino e ESP32, Python para Raspberry Pi
-- **IDE**: Arduino IDE, Thonny para Raspberry Pi, VS Code (opcional)
-- **Bibliotecas**: Liste as bibliotecas necessárias, como `Adafruit_Sensor`, `DHT`, entre outras.
+- **Linguagens**: C para Arduino via Arduino IDE;
+- **IDE**: Arduino IDE, Tinkercad(Opcional);
+- **Bibliotecas**: LiquidCrystal(Lcd).
 
 ---
 
@@ -44,11 +44,12 @@ Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monito
 
 ### Passo 1: Instalação do Software
 
-- **Arduino IDE**: Instruções para instalar e configurar a IDE do Arduino para ESP32/Arduino.
-- **Thonny Python**: Configuração do Thonny para programar em Python no Raspberry Pi.
-- **Bibliotecas**: Como instalar as bibliotecas necessárias. Exemplo:
+- **Arduino IDE**: Por meio do link (https://www.arduino.cc/en/software) faça o download software que usaremos para programar a placa.
+- **Bibliotecas**: Como instalar as bibliotecas necessárias:
+  1.Após instalar o Arduino IDE procure por:
+  <img>  
+```bash!
 
-```bash
 # Instalar bibliotecas do Python
 pip install Adafruit_DHT
 ```

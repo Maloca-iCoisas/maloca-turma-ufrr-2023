@@ -1,6 +1,6 @@
-# Sistema de Alerta com Arduino Uno R3
+# Sistema de Alerta com Arduino Mega
 
-**Descrição:** Criação de um circuito utilizando Arduino Uno R3 para indicar um estado de socorro de um paciente, por meio de uma botão.
+**Descrição:** Criação de um circuito utilizando Arduino Mega para indicar um estado de socorro de um paciente, por meio de uma botão.
 
 ---
 
@@ -19,7 +19,6 @@
 
 ## Introdução
 O princípio deste circuito está na possibilidade de acionar uma equipe médica o mais rapido possível. Assim caso ocorra algum acidente como queda, piora repentina de algum sintoma e entre outros incidentes o paciente pode ligeiramente acionar o socorro. Dessa maneira, como se trata de um circuito simples pode ser facilmente instalado em casa de pessoas que necessitam de supervisionamento.
-Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monitoramento de sinais vitais em tempo real para pacientes, ou um sistema de alarme para quedas. Inclua uma breve visão sobre como o projeto se integra ao ambiente IoT.
 
 ---
 
@@ -27,10 +26,10 @@ Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monito
 
 ### Hardware
 
-- **Placa**: Arduino Uno R3;
+- **Placa**: Arduino Mega;
 - **Sensores**: Botão;
 - **Atuadores**: Dois Led's (Verde: Estado Normal; Vermelho: Estado Emergência);
-- **Outros componentes**: Protoboard(fins educacionais), 5 resistores ( 3 de 330ohms e 2 de 1kohms), jumpers, 1 Lcd.
+- **Outros componentes**: Protoboard(fins educacionais), 5 resistores(3 de 330ohms e 2 de 1kohms), jumpers, 1 Lcd, cabo usb.
 
 ### Software
 
@@ -44,28 +43,32 @@ Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monito
 
 ### Passo 1: Instalação do Software
 
-- **Arduino IDE**: Por meio do link (https://www.arduino.cc/en/software) faça o download software que usaremos para programar a placa.
-- **Bibliotecas**: Como instalar as bibliotecas necessárias:
-  1.Após instalar o Arduino IDE procure por:
-  <img>  
-```bash!
+- **Arduino IDE**: Por meio do link (https://www.arduino.cc/en/software) faça o download software que usaremos para programar a placa;
+- **Bibliotecas**: Como instalar a biblioteca necessária:
+1. Após instalar o Arduino IDE procure por:
+  
+  <img src="Caminho-Biblioteca.png" alt="caminho-biblioteca-manager" />
 
-# Instalar bibliotecas do Python
-pip install Adafruit_DHT
-```
+2. Na área de texto digite "LiquidCrystal" e instale a que está escrito by Arduino;
 
 ### Passo 2: Configuração das Placas
 
-- **Arduino/ESP32**: Passos para configurar a placa e selecionar a porta correta na IDE.
-- **Raspberry Pi**: Configuração do GPIO para comunicação com os sensores.
+- **Arduino**: Passos para configurar a placa e selecionar a porta correta na IDE:
+1. Conecte o arduino no computador via cabo usb;
+2. Clique em:
+
+   <img src="Caminho-Selecionar-Port.png" alt="caminho-biblioteca-manager" />
+3. Clique em Select other board and port;
+4. Selecione a board Arduino Mega or Mega 2560;
+5. Por fim seleciona a Port.
 
 ---
 
 ## Montagem do Circuito
 
-Insira um diagrama do circuito, ou descreva as conexões principais, incluindo onde cada sensor e atuador deve ser conectado. 
+-Para montar o circuito será necessário muita atenção ao manusear os cabos, se atente as portas e siga a imagem abaixo:
 
-> **Nota**: Use imagens ou diagramas para auxiliar a compreensão.
+<img src="Caminho-Montagem-Circuito.png" alt="caminho-montagem-circuito" />
 
 ---
 

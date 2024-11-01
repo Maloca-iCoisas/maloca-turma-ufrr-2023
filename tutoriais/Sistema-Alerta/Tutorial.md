@@ -74,42 +74,12 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 ## Programação
 
-### Passo 1: Configuração dos Sensores e Atuadores
-
-Forneça o código para a configuração dos sensores. Por exemplo, para medir temperatura e batimentos cardíacos:
-
-**Exemplo em C para ESP32:**
-
+### Passo 1: Configuração do do Lcd
+-Com o circuito montado, vamos configurar o Lcd no Arduino IDE:
 ```cpp
-#include <DHT.h>
+#include <LiquidCrystal.h>
 
-#define DHTPIN 2     // Pino do sensor DHT
-#define DHTTYPE DHT11 
-
-DHT dht(DHTPIN, DHTTYPE);
-
-void setup() {
-  Serial.begin(9600);
-  dht.begin();
-}
-
-void loop() {
-  float temp = dht.readTemperature();
-  Serial.println(temp);
-  delay(2000);
-}
-```
-
-**Exemplo em Python para Raspberry Pi:**
-
-```python
-import Adafruit_DHT
-
-sensor = Adafruit_DHT.DHT11
-pin = 4  # Pino GPIO
-
-humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-print(f"Temperatura: {temperature}ºC")
+LiquidCrystal lcd(8,9,4,5,6,7);
 ```
 
 ### Passo 2: Processamento e Lógica de Alerta

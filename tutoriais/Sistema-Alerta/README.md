@@ -1,6 +1,6 @@
 # Sistema de Alerta com Arduino Mega
 
-**Descrição:** Criação de um circuito utilizando Arduino Mega para indicar um estado de socorro de um paciente, por meio de uma botão.
+**Descrição:** Criação de um circuito utilizando Arduino Mega para indicar um estado de socorro de um paciente.
 
 ---
 
@@ -76,10 +76,11 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 ### Passo 1: Configuração do Lcd
 - Com o circuito montado, vamos configurar o Lcd no Arduino IDE:
+  
 ```cpp
 #include <LiquidCrystal.h>
 
-LiquidCrystal lcd(8,9,4,5,6,7);
+LiquidCrystal lcd(8,9,4,5,6,7);/*Siga essas portas (Rs,E,DB4,DB5,DB6,DB7)->(8,9,4,5,6,7)*/
 ```
 
 ### Passo 2: Lógica do Sistema de Alerta

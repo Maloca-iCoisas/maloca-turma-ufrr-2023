@@ -52,7 +52,7 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 2. Na área de texto digite "LiquidCrystal" e instale a que está escrito by Arduino;
 
-### Passo 2: Configuração das Placas
+### Passo 2: Configuração da Placa
 
 - **Arduino**: Passos para configurar a placa e selecionar a porta correta na IDE:
 1. Conecte o arduino no computador via cabo usb;
@@ -75,7 +75,7 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 ## Programação
 
-### Passo 1: Configuração do Lcd
+### Passo 1: Configuração do LCD
 - Com o circuito montado, vamos configurar o LCD no Arduino IDE:
   
 ```cpp

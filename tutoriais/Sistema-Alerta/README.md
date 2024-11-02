@@ -66,7 +66,7 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 ## Montagem do Circuito
 
--Para montar o circuito será necessário muita atenção ao manusear os cabos, se atente as portas e siga a imagem abaixo:
+- Para montar o circuito será necessário muita atenção ao manusear os cabos, se atente as portas e siga a imagem abaixo:
 
 <img src="Caminho-Montagem-Circuito.png" alt="caminho-montagem-circuito" />
 
@@ -74,27 +74,100 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 ## Programação
 
-### Passo 1: Configuração do do Lcd
--Com o circuito montado, vamos configurar o Lcd no Arduino IDE:
+### Passo 1: Configuração do Lcd
+- Com o circuito montado, vamos configurar o Lcd no Arduino IDE:
 ```cpp
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(8,9,4,5,6,7);
 ```
 
-### Passo 2: Processamento e Lógica de Alerta
+### Passo 2: Lógica do Sistema de Alerta
+- Após configurar o Lcd, vamos adicionar a lógica para o funcionamento do sistema 
+```cpp
+#define LedVerm 2
+#define LedVerd 3
+#define BotAlert 10
 
-Adicione a lógica para processar os dados e acionar atuadores, como LEDs ou buzzer, caso as leituras excedam um determinado limite.
+int bot = 0;
+int cont = 0;
 
+void lerBot()
+{
+  bot = digitalRead(BotAlert);
+}
+
+void ligaVerd()
+{
+  digitalWrite(LedVerd, HIGH);
+}
+
+void desligaVerd()
+{
+  digitalWrite (LedVerd,LOW);
+}
+
+void PiscaVerm()
+{
+  digitalWrite(LedVerm, HIGH);
+  delay(100);
+  digitalWrite(LedVerm,LOW);
+}
+
+void Padrao()
+{
+  lcd.setCursor(3,0);
+  lcd.print("Sistema em:");
+  lcd.setCursor(2,1);
+  lcd.print("Estado Normal");
+  ligaVerd();
+}
+
+void Alerta()
+{
+  lcd.clear();
+  lcd.setCursor(4,0);
+  lcd.print("ALERTA!!!!!!!");
+  PiscaVerm();
+  delay(200);
+  lcd.clear();
+}
+void setup()
+{
+  Serial.begin(9600);
+  lcd.begin(16,2);
+  delay(500);
+  pinMode(LedVerm, OUTPUT);
+  pinMode(LedVerd, OUTPUT);
+  pinMode(BotAlert, INPUT);
+}
+
+void loop()
+{
+  cont = 0;
+  lerBot();
+  if (bot == HIGH)
+  {
+    desligaVerd();
+    delay(400);
+    for(cont;cont <= 5; cont++){
+      Alerta();
+      delay(400);
+    }
+  }else {
+    Padrao();
+  }
+}
+```
 ---
 
 ## Teste e Validação
 
 Descreva os testes para validar cada parte do projeto:
 
-1. **Testando Sensores**: Verifique se as leituras são consistentes e corretas.
-2. **Validação dos Atuadores**: Confirme que os atuadores funcionam corretamente.
-3. **Monitoramento em Tempo Real**: Teste o sistema completo em condições simuladas para garantir que funciona conforme o esperado.
+1. **Testando Atuadores**: Verifique o funcionamento dos led's, vermelho deve ligar apenas ao pressionar o botão e o verde deve ficar ligado até o botão ser pressionado.
+2. **Validação dos Sensores**: Confirme que ao apertar o botão, ligue o led vermelho e mude a mensagem do lcd.
+3. **Estado Normal**: Verifique se após um intervalo de tempo a mensagem do lcd volte ao estado normal e ligue o led verde. 
 
 ---
 
@@ -102,16 +175,17 @@ Descreva os testes para validar cada parte do projeto:
 
 Sugestões para melhorar o projeto, como:
 
-- Adicionar comunicação Wi-Fi (ESP32) para enviar dados para uma nuvem.
-- Integrar um banco de dados para registro das leituras.
-- Conectar-se a uma aplicação móvel para visualização remota.
+- Modulo ESP32 para comunicação WIFI com algum dispositivo.
+- Ao invés do botão, optar por outros sensores como de temperatura(DHT11), de gás(MQ-2,MQ-7) ou até sensores de queda.
+- .
 
 ---
 
 ## Referências
 
 Liste todas as referências e links úteis para guias, bibliotecas, e materiais adicionais que ajudem a complementar o tutorial.
-
+1. https://www.tinkercad.com/things/1unuX2OeU4X
+2. https://docs.arduino.cc/libraries/liquidcrystal/
+3. https://www.arduino.cc/en/software
+   
 ---
-
-Espero que esse modelo ajude a organizar o conteúdo e fornecer uma estrutura clara e completa para tutoriais de IoT no contexto da saúde.

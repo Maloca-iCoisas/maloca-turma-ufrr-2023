@@ -60,7 +60,7 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
    <img src="Caminho-Selecionar-Port.png" alt="caminho-biblioteca-manager" />
 3. Clique em Select other board and port;
 4. Selecione a board Arduino Mega or Mega 2560;
-5. Por fim seleciona a Port.
+5. Por fim selecionar a Port.
 
 ---
 
@@ -163,8 +163,6 @@ void loop()
 
 ## Teste e Validação
 
-Descreva os testes para validar cada parte do projeto:
-
 1. **Testando Atuadores**: Verifique o funcionamento dos led's, vermelho deve ligar apenas ao pressionar o botão e o verde deve ficar ligado até o botão ser pressionado.
 2. **Validação dos Sensores**: Confirme que ao apertar o botão, ligue o led vermelho e mude a mensagem do lcd.
 3. **Estado Normal**: Verifique se após um intervalo de tempo a mensagem do lcd volte ao estado normal e ligue o led verde. 
@@ -173,17 +171,14 @@ Descreva os testes para validar cada parte do projeto:
 
 ## Expansões e Melhorias
 
-Sugestões para melhorar o projeto, como:
-
-- Modulo ESP32 para comunicação WIFI com algum dispositivo.
+- Modulo ESP32 para comunicação WIFI com algum dispositivo móvel.
 - Ao invés do botão, optar por outros sensores como de temperatura(DHT11), de gás(MQ-2,MQ-7) ou até sensores de queda.
-- .
+- Comunicação com nuvém para armazenar métricas captadas pelos sensores.
 
 ---
 
 ## Referências
 
-Liste todas as referências e links úteis para guias, bibliotecas, e materiais adicionais que ajudem a complementar o tutorial.
 1. https://www.tinkercad.com/things/1unuX2OeU4X
 2. https://docs.arduino.cc/libraries/liquidcrystal/
 3. https://www.arduino.cc/en/software

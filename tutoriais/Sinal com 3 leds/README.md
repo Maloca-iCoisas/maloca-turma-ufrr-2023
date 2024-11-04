@@ -84,6 +84,7 @@ Para montar o circuito, siga as instruções abaixo:
 
 Use o código a seguir para controlar os LEDs:
 
+```cpp
 // Definição dos pinos dos LEDs
 const int ledVerde = 2;
 const int ledVermelho = 4;
@@ -105,7 +106,6 @@ void loop() {
   delay(5000);                     // Mantém por 5 segundos
   digitalWrite(ledVermelho, LOW);  // Apaga o LED vermelho
 }
-
 ```
 
 ### Passo 2: Processamento e Lógica de Alerta

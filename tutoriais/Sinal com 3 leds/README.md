@@ -84,8 +84,27 @@ Para montar o circuito, siga as instruções abaixo:
 
 Use o código a seguir para controlar os LEDs:
 
-**Exemplo em C para ESP32:**
+// Definição dos pinos dos LEDs
+const int ledVerde = 2;
+const int ledVermelho = 4;
 
+void setup() {
+  // Configuração dos pinos como saída
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+}
+
+void loop() {
+  // Fase verde
+  digitalWrite(ledVerde, HIGH);   // Acende o LED verde
+  delay(5000);                    // Mantém por 5 segundos
+  digitalWrite(ledVerde, LOW);    // Apaga o LED verde
+  
+  // Fase vermelha
+  digitalWrite(ledVermelho, HIGH); // Acende o LED vermelho
+  delay(5000);                     // Mantém por 5 segundos
+  digitalWrite(ledVermelho, LOW);  // Apaga o LED vermelho
+}
 
 ```
 

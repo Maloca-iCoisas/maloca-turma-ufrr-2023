@@ -74,8 +74,7 @@ Para montar o circuito, siga as instruções abaixo:
 
 - Conecte a linha positiva (linha vermelha) da protoboard ao pino 5V do Arduino para fornecer alimentação estável aos componentes do circuito.
 
-> **Nota**: Use imagens ou diagramas para auxiliar a compreensão.
-
+<img src="modelo thinker card.png" alt="modelo thinker card" />
 ---
 
 ## Programação

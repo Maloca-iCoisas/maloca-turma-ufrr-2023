@@ -82,7 +82,7 @@ Para montar o circuito, siga as instruções abaixo:
 
 ### Passo 1: Configuração dos LEDs
 
-Use o código a seguir para controlar os LEDs:
+Definiremos os pinos dos LEDs e os configuraremos como saídas para controlar o estado de cada LED:
 
 ```cpp
 // Definição dos pinos dos LEDs
@@ -94,33 +94,35 @@ void setup() {
   pinMode(ledVerde, OUTPUT);
   pinMode(ledVermelho, OUTPUT);
 }
+```
 
+### Passo 2: Lógica de Sequência do Sinal
+
+Abaixo está o código que controla a sequência de um semáforo simples, alternando entre os LEDs verde e vermelho com uma duração específica para cada um:
+
+```cpp
 void loop() {
-  // Fase verde
+  // Led verde
   digitalWrite(ledVerde, HIGH);   // Acende o LED verde
   delay(5000);                    // Mantém por 5 segundos
   digitalWrite(ledVerde, LOW);    // Apaga o LED verde
   
-  // Fase vermelha
+  // Led vermelha
   digitalWrite(ledVermelho, HIGH); // Acende o LED vermelho
   delay(5000);                     // Mantém por 5 segundos
   digitalWrite(ledVermelho, LOW);  // Apaga o LED vermelho
 }
 ```
 
-### Passo 2: Processamento e Lógica de Alerta
-
-Adicione a lógica para processar os dados e acionar atuadores, como LEDs ou buzzer, caso as leituras excedam um determinado limite.
-
 ---
 
 ## Teste e Validação
 
-Descreva os testes para validar cada parte do projeto:
+Para garantir que o projeto funcione corretamente, realize os seguintes testes:
 
-1. **Testando Sensores**: Verifique se as leituras são consistentes e corretas.
-2. **Validação dos Atuadores**: Confirme que os atuadores funcionam corretamente.
-3. **Monitoramento em Tempo Real**: Teste o sistema completo em condições simuladas para garantir que funciona conforme o esperado.
+1. **Verificação da Conexão dos LEDs**: Certifique-se de que os LEDs estão conectados nos pinos corretos e orientados com os terminais certos.
+2. **Teste da Sequência:**: Carregue o código para o Arduino e observe a sequência de acendimento dos LEDs.
+3. **Ajuste de Tempo:**: Se necessário, ajuste o tempo de delay para modificar a duração de cada fase do semáforo.
 
 ---
 
@@ -128,16 +130,18 @@ Descreva os testes para validar cada parte do projeto:
 
 Sugestões para melhorar o projeto, como:
 
-- Adicionar comunicação Wi-Fi (ESP32) para enviar dados para uma nuvem.
-- Integrar um banco de dados para registro das leituras.
-- Conectar-se a uma aplicação móvel para visualização remota.
+- Adicionar um botão para controle manual do semáforo.
+- Utilizar um display para mostrar o tempo restante para cada fase.
+- Integrar o sistema a uma rede IoT para monitoramento remoto e controle do fluxo em tempo real.
 
 ---
 
 ## Referências
 
-Liste todas as referências e links úteis para guias, bibliotecas, e materiais adicionais que ajudem a complementar o tutorial.
+- Documentação do Arduino: https://www.arduino.cc/.
+- Tutoriais de circuitos com LEDs: https://www.blogdarobotica.com/2020/09/23/pisca-led-com-arduino-blink/.
 
 ---
 
-Espero que esse modelo ajude a organizar o conteúdo e fornecer uma estrutura clara e completa para tutoriais de IoT no contexto da saúde.
+Este tutorial fornece uma introdução básica ao controle de LEDs com Arduino, simulando um sistema de semáforo para ambientes de saúde.
+

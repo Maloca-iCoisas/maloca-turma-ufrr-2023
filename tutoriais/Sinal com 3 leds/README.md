@@ -1,6 +1,7 @@
 # Sinal de Controle de fluxo de Pessoas
 
 **Descrição:**  Neste tutorial, vamos construir um sistema de semáforo simples com Arduino e LEDs, aplicável para ambientes de saúde, com o objetivo de controlar o fluxo de entrada e saída de pessoas em áreas restritas ou de alto risco. Esse projeto oferece uma maneira visual de indicar quando é seguro entrar (LED verde) ou parar (LED vermelho), contribuindo para um ambiente hospitalar mais organizado e seguro.
+
 ---
 
 ## Índice

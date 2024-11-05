@@ -28,7 +28,7 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 - **Placa**: Arduino Mega;
 - **Sensores**: Botão;
-- **Atuadores**: Dois led's (Verde: Estado Normal; Vermelho: Estado Emergência);
+- **Atuadores**: Dois leds (Verde: Estado Normal; Vermelho: Estado Emergência);
 - **Outros componentes**: Protoboard (fins educacionais), 5 resistores (3 de 330ohms e 2 de 1kohms), jumpers, 1 LCD, cabo usb.
 
 ### Software
@@ -43,14 +43,14 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 ### Passo 1: Instalação do Software
 
-- **Arduino IDE**: Por meio do link (https://www.arduino.cc/en/software) faça o download software que usaremos para programar a placa;
+- **Arduino IDE**: Por meio do link (https://www.arduino.cc/en/software) faça o download do software que usaremos para programar a placa;
 - **Bibliotecas**: Como instalar a biblioteca necessária:
   
 1. Após instalar o Arduino IDE procure por:
   
   <img src="Caminho-Biblioteca.png" alt="caminho-biblioteca-manager" />
 
-2. Na área de texto digite "LiquidCrystal" e instale a que está escrito by Arduino;
+2. Na área de texto digite "LiquidCrystal" e instale o que está escrito by Arduino;
 
 ### Passo 2: Configuração da Placa
 
@@ -67,11 +67,13 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 
 ## Montagem do Circuito
 
-- Para montar o circuito será necessário muita atenção ao manusear os cabos, se atente as portas e siga a imagem abaixo:
+- Para montar o circuito será necessário muita atenção ao manusear os cabos, se atente as portas e siga as imagens abaixo:
 
 <img src="Caminho-Montagem-Circuito.png" alt="caminho-montagem-circuito" />
 
 - Pinagem:
+
+<img src="Pinagem.png" alt="Guia-Pinagem" width="1500" height="900"/>
 
 ---
 
@@ -82,9 +84,9 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 - Com o circuito montado, vamos configurar o LCD no Arduino IDE:
   
 ```cpp
-#include <LiquidCrystal.h>
+#include <LiquidCrystal.h> // Inclui a biblioteca para utilizar o LCD.
 
-LiquidCrystal lcd(8,9,4,5,6,7);/*Siga essas portas (Rs,E,DB4,DB5,DB6,DB7)->(8,9,4,5,6,7)*/
+LiquidCrystal lcd(8,9,4,5,6,7);// Configuração das portas do LCD.
 ```
 
 ### Passo 2: Lógica do Sistema de Alerta
@@ -92,28 +94,32 @@ LiquidCrystal lcd(8,9,4,5,6,7);/*Siga essas portas (Rs,E,DB4,DB5,DB6,DB7)->(8,9,
 - Após configurar o LCD, vamos adicionar a lógica para o funcionamento do sistema
   
 ```cpp
+// Definindo as portas dos LEDs e do botão.
 #define LedVerm 2
 #define LedVerd 3
 #define BotAlert 10
 
-int bot = 0;
-int cont = 0;
+int bot = 0; // Variável para guardar o estado do botão.
+int cont = 0; // Contador para o loop do alerta.
 
+// Lê o estado do botão.
 void lerBot()
 {
   bot = digitalRead(BotAlert);
 }
 
+// Liga o LED verde.
 void ligaVerd()
 {
   digitalWrite(LedVerd, HIGH);
 }
-
+// Desliga o LED verde.
 void desligaVerd()
 {
   digitalWrite (LedVerd,LOW);
 }
 
+// Písca o LED vermelho.
 void PiscaVerm()
 {
   digitalWrite(LedVerm, HIGH);
@@ -121,6 +127,7 @@ void PiscaVerm()
   digitalWrite(LedVerm,LOW);
 }
 
+// Indica que o sistema está em estado normal e liga o LED verde.
 void Padrao()
 {
   lcd.setCursor(3,0);
@@ -130,6 +137,7 @@ void Padrao()
   ligaVerd();
 }
 
+// Aciona o modo de alerta e pisca o LED vermelho.
 void Alerta()
 {
   lcd.clear();
@@ -139,6 +147,8 @@ void Alerta()
   delay(200);
   lcd.clear();
 }
+
+// Configuração inicial dos pinos.
 void setup()
 {
   Serial.begin(9600);
@@ -148,7 +158,7 @@ void setup()
   pinMode(LedVerd, OUTPUT);
   pinMode(BotAlert, INPUT);
 }
-
+// Loop principal onde verifica o estado do botão, desliga o LED verde e aciona o estado de alerta.
 void loop()
 {
   cont = 0;
@@ -161,7 +171,7 @@ void loop()
       Alerta();
       delay(400);
     }
-  }else {
+  }else { // Caso o Botão fique em LOW o código mantém o padrão.
     Padrao();
   }
 }
@@ -170,9 +180,9 @@ void loop()
 
 ## Teste e Validação
 
-1. **Testando Atuadores**: Verifique o funcionamento dos led's, vermelho deve ligar apenas ao pressionar o botão e o verde deve ficar ligado até o botão ser pressionado;
+1. **Testando Atuadores**: Verifique o funcionamento dos leds, vermelho deve ligar apenas ao pressionar o botão e o verde deve ficar ligado até o botão ser pressionado;
 2. **Validação dos Sensores**: Confirme que ao apertar o botão, ligue o led vermelho e mude a mensagem do LCD;
-3. **Estado Normal**: Verifique se após um intervalo de tempo a mensagem do lcd volte ao estado normal e ligue o led verde. 
+3. **Estado Normal**: Verifique se após um intervalo de tempo a mensagem do LCD volte ao estado normal e ligue o led verde. 
 
 ---
 

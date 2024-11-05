@@ -1,4 +1,4 @@
-# Sistema de Alerta com Arduino Mega
+# Sistema de Alerta para Monitoramento de Pacientes
 
 **Descrição:** Criação de um circuito utilizando Arduino Mega para indicar um estado de socorro de um paciente.
 
@@ -29,13 +29,13 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 - **Placa**: Arduino Mega;
 - **Sensores**: Botão;
 - **Atuadores**: Dois led's (Verde: Estado Normal; Vermelho: Estado Emergência);
-- **Outros componentes**: Protoboard(fins educacionais), 5 resistores(3 de 330ohms e 2 de 1kohms), jumpers, 1 LCD, cabo usb.
+- **Outros componentes**: Protoboard (fins educacionais), 5 resistores (3 de 330ohms e 2 de 1kohms), jumpers, 1 LCD, cabo usb.
 
 ### Software
 
 - **Linguagens**: C para Arduino via Arduino IDE;
-- **IDE**: Arduino IDE, Tinkercad(Opcional);
-- **Bibliotecas**: LiquidCrystal(LCD).
+- **IDE**: Arduino IDE, Tinkercad (Opcional);
+- **Bibliotecas**: LiquidCrystal (LCD).
 
 ---
 
@@ -70,6 +70,8 @@ O princípio deste circuito está na possibilidade de acionar uma equipe médica
 - Para montar o circuito será necessário muita atenção ao manusear os cabos, se atente as portas e siga a imagem abaixo:
 
 <img src="Caminho-Montagem-Circuito.png" alt="caminho-montagem-circuito" />
+
+- Pinagem:
 
 ---
 
@@ -177,14 +179,14 @@ void loop()
 ## Expansões e Melhorias
 
 - Modulo ESP32 para comunicação WIFI com algum dispositivo móvel;
-- Ao invés do botão, optar por outros sensores como de temperatura(DHT11), de gás(MQ-2,MQ-7) ou até sensores de queda;
+- Ao invés do botão, optar por outros sensores como de temperatura (DHT11), de gás (MQ-2,MQ-7) ou até sensores de queda;
 - Comunicação com nuvém para armazenar métricas captadas pelos sensores.
 
 ---
 
 ## Referências
 
-1. https://www.tinkercad.com/things/1unuX2OeU4X
+1. https://www.tinkercad.com/things/1unuX2OeU4X-sistema-de-alerta-para-monitoramento-de-pacientes?sharecode=9TAe8z6p8THZwofrSDmh2QAxmH0FTaxHn06dodB2yvQ
 2. https://docs.arduino.cc/libraries/liquidcrystal/
 3. https://www.arduino.cc/en/software
    

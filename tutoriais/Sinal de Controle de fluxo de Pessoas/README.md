@@ -137,8 +137,9 @@ Sugestões para melhorar o projeto, como:
 
 ## Referências
 
-- Documentação do Arduino: https://www.arduino.cc/.
-- Tutoriais de circuitos com LEDs: https://www.blogdarobotica.com/2020/09/23/pisca-led-com-arduino-blink/.
+1. Link da simulação: https://www.tinkercad.com/things/7hZtcHNeM26-sinal-com-2-leds
+2. Documentação do Arduino: https://www.arduino.cc/.
+3. Tutoriais de circuitos com LEDs: https://www.blogdarobotica.com/2020/09/23/pisca-led-com-arduino-blink/.
 
 ---
 

@@ -119,9 +119,9 @@ void loop() {
 
 Para garantir que o projeto funcione corretamente, realize os seguintes testes:
 
-1. **Verificação da Conexão dos LEDs**: Certifique-se de que os LEDs estão conectados nos pinos corretos e orientados com os terminais certos.
-2. **Teste da Sequência:**: Carregue o código para o Arduino e observe a sequência de acendimento dos LEDs.
-3. **Ajuste de Tempo:**: Se necessário, ajuste o tempo de delay para modificar a duração de cada fase do semáforo.
+1. **Verificação da Conexão dos LEDs:** Certifique-se de que os LEDs estão conectados nos pinos corretos e orientados com os terminais certos.
+2. **Teste da Sequência:** Carregue o código para o Arduino e observe a sequência de acendimento dos LEDs.
+3. **Ajuste de Tempo:** Se necessário, ajuste o tempo de delay para modificar a duração de cada fase do semáforo.
 
 ---
 
@@ -137,7 +137,7 @@ Sugestões para melhorar o projeto, como:
 
 ## Referências
 
-1. Link da simulação: https://www.tinkercad.com/things/7hZtcHNeM26-sinal-com-2-leds
+1. Link da simulação: https://www.tinkercad.com/things/7hZtcHNeM26-sinal-com-2-leds.
 2. Documentação do Arduino: https://www.arduino.cc/.
 3. Tutoriais de circuitos com LEDs: https://www.blogdarobotica.com/2020/09/23/pisca-led-com-arduino-blink/.
 

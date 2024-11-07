@@ -51,7 +51,8 @@ Controlar o fluxo de pessoas é essencial em áreas críticas de hospitais. Este
 2. Clique em Select other board and port como mostra na imagem abaixo:
 <img src="tela_arduino.png" alt="tela do arduino" />
 3. Selecione board Arduino Mega or Mega 2560;
-4. Por fim selecione a porta correta na IDE do Arduino.
+4. 
+5. Por fim selecione a porta correta na IDE do Arduino.
 
 ---
 

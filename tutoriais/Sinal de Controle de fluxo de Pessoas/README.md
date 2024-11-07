@@ -101,14 +101,14 @@ Abaixo está o código que controla a sequência de um semáforo simples, altern
 
 ```cpp
 void loop() {
-  // Led verde
+  // LED verde
   digitalWrite(ledVerde, HIGH);   // Acende o LED verde
-  delay(5000);                    // Mantém por 5 segundos
+  delay(5000);                    // Mantém o LED verde aceso por 5000 milissegundos (5 segundos)
   digitalWrite(ledVerde, LOW);    // Apaga o LED verde
   
-  // Led vermelha
+  // LED vermelho
   digitalWrite(ledVermelho, HIGH); // Acende o LED vermelho
-  delay(5000);                     // Mantém por 5 segundos
+  delay(5000);                     // Mantém o LED vermelho aceso por 5000 milissegundos (5 segundos)
   digitalWrite(ledVermelho, LOW);  // Apaga o LED vermelho
 }
 ```

@@ -43,10 +43,15 @@ Controlar o fluxo de pessoas é essencial em áreas críticas de hospitais. Este
 ### Passo 1: Instalação do Software
 
 - **Arduino IDE**: Baixe e instale o Arduino IDE a partir do https://www.arduino.cc/en/software.
+  
 
 ### Passo 2: Configuração da Placa
 
-- **Arduino**: Conecte a placa ao computador via USB e selecione a porta correta na IDE do Arduino.
+1. No Software Arduino Conecte a placa ao computador via USB;
+2. Clique em Select other board and port como mostra na imagem abaixo:
+<img src="tela_arduino.png" alt="tela do arduino" />
+4. Selecione board Arduino Mega or Mega 2560;
+3. Por fim selecione a porta correta na IDE do Arduino.
 
 ---
 

@@ -1,4 +1,4 @@
-# Sistema de controle de temperatura para áreas sensiveis
+# Sistema de controle de temperatura para áreas hospitalares sensiveis
 
 **Descrição** Neste tutorial iremos construir um circuito para controle de temperatura para pontos onde não pode haver grande flutuação de temperatura.
 
@@ -19,7 +19,7 @@
 
 ## Introdução
 
-áreas sensíveis como, UTIs ou salas de cirurgia tem temperaturas parametrizadas para o controle higiênico e não proliferação de agentes infecciosos. Dessa forma podemos construir um sensor de temperatura que emite  um sinal sonoro quando a temperatura ambiente aumentar a um nível estabelecido, posteriormente o sistema pode substituir  o alerta sonoro e avisar apenas enfermeiros ou chefes de departamento para melhor visualização do caso.
+Áreas sensíveis como, UTIs, salas de cirurgia ou farmácias, tem temperaturas parametrizadas para o controle higiênico e não proliferação de agentes infecciosos. Dessa forma podemos construir um circuito com sensor de temperatura e que emite um sinal sonoro quando a temperatura ambiente aumentar a um nível estabelecido. Posteriormente o sistema pode substituir  o alerta sonoro e avisar apenas enfermeiros ou chefes de departamento para melhor visualização do caso.
 
 ---
 
@@ -90,13 +90,13 @@ Para montar o circuito, siga as instruções abaixo e se preciso analise o circu
 Definiremos a ligação dos pinos aos terminais dos atuadores
 ```cpp
 //Definição dos pinos
-const int alarme = 11; //Pino do Piezo Buzzer
-int pin = A0; //Pino do Sensor
-float temp = 0; //Variável que receberá o valor obtido pelo sensor
+const int alarme = 11; // Pino do Piezo Buzzer
+int pin = A0; // Pino do Sensor
+float temp = 0; // Variável que receberá o valor obtido pelo sensor
 
 
 void setup(){
-  //configuração do alarme
+  // Configuração do alarme
   pinMode(alarme, OUTPUT);
   Serial.begin(9600);
 }
@@ -109,27 +109,29 @@ Essa parte do código irá, por meio de alguns cálculos matemáticos, transform
 ```cpp
 void loop()
 {
-  //executável que vai rodar a função temperatura
+  // Executável que vai rodar a função temperatura
     temperatura();
 }
 void temperatura()
 {
-  //configuração do sensor, transformará sinais analógicos em sinais visiveis para o usuário
-  temp = analogRead(pin)*5;
-  //calculos necessários para a transformação dos sinais analógicos
-  temp = temp/1024;
-  temp = temp-0.4971;
-  temp = temp*100;
+  // Configuração do sensor, transformará sinais analógicos em sinais visiveis para o usuário.
+  temp = analogRead(pin)*5; // Multiplica a leitura analogica por 5V.
+  temp = temp/1024; // A linha anterior junto dessa, transforma o valor analógico lido em tensão.
+
+  // A divisão 5/1024 transforma o valor analogico (temperatura) em valor digital, para que o Arduino possa processar esses dados.
+
+  temp = temp-0.4971; // Esta linha é uma correção para o sensor utilizado compensando um desvio na leitura de temperatura, o número é encontrado de maneira manual.
+  temp = temp*100; // Transforma esses dados em temperatura.
   Serial.print(temp);
     Serial.println("C");
-  //definição da temperatura
+  // Definição da temperatura
 if (temp >= 36)
 {
-  //tone para definir como o alarme tocará o som
+  // Tone para definir como o alarme tocará o som
     tone(alarme, 1000, 1000);
     Serial.println("QUENTE, muita gente em área sensivel");
 }
-//delay para resposta do sinal e ativar o alarme
+// Delay para resposta do sinal e ativar o alarme
 delay(2000);
 }
 ```

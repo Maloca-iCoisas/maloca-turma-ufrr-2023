@@ -67,6 +67,11 @@ Esse sistema é útil em hospitais e clínicas para:
 
 ---
 
+## **Exemplo de esquema feito no ThinkerCad**
+![Esquema de circuitos](./diagrama-thinkerCAD.jpeg)
+
+---
+
 ## **Código do Projeto**
 
 ```cpp

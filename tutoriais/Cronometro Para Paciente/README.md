@@ -67,7 +67,7 @@ O sistema de alerta foi desenvolvido para monitorar o tempo que um paciente deve
  
 - Foto do Circuito:
 
-<img src="imagem circuito.png" alt="imagem circuito" />
+<img src="imagem-circuito.png" alt="imagem-circuito" />
 
 
 ---

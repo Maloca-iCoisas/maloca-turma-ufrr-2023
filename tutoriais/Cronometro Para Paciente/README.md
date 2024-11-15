@@ -18,7 +18,7 @@
 ---
 
 ## Introdução
-O sistema de alerta foi desenvolvido para monitorar o tempo que um paciente deve tomar o medicamento, gerando um alarme sonoro e um LED indicador após um intervalo de 5 minutos. O sistema inclui dois botões: um para iniciar o contador de 5 minutos e outro para parar o alarme assim que o medicamento for tomado.
+O sistema de alerta foi desenvolvido para monitorar o tempo que um paciente deve tomar o medicamento, gerando um alarme sonoro e um LED indicador após um intervalo de 5 minutos (Escolhemos esse tempo apenas para demonstração). O sistema inclui dois botões: um para iniciar o contador de 5 minutos e outro para parar o alarme assim que o medicamento for tomado.
 
 
 ---
@@ -60,10 +60,10 @@ O sistema de alerta foi desenvolvido para monitorar o tempo que um paciente deve
 
 ## Montagem do Circuito
 
-- **Botão de Início (Botão Esquerdo)**: Conectado ao pino 2 do Arduino. ( E usando um resistor de 1k ohms)
-- **Botão de Parada (Botão Direito)**: Conectado ao pino 3 do Arduino. ( E usando um resistor de 1k ohms)
-- **LED**: Conectado ao pino 13 do Arduino. ( E usando um resistor de 220 ohms)
-- **Buzzer**: Conectado ao pino 12 do Arduino. ( E usando um resistor de 220 ohms)
+- **Botão de Início (Botão Esquerdo)**: Porta a1 conectada ao pino 2 do Arduino. Já a porta a2 está ligada ao GND passando por um resistor de 1k ohms. 
+- **Botão de Parada (Botão Direito)**: Porta a1 conectada ao pino 3 do Arduino. Já a porta a2 está ligada ao GND passando por um resistor de 1k ohms. 
+- **LED**: Anodo conectado ao pino 13 do Arduino. Já outra entrada está ligada ao GND passando por um resistor de 220 ohms.
+- **Buzzer**: Lado positivo conectado ao pino 12 do Arduino. Já o lado negativo está ligado ao GND passando por um resistor de 220 ohms.
  
 - Foto do Circuito:
 

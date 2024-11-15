@@ -30,7 +30,7 @@ O sistema de alerta foi desenvolvido para monitorar o tempo que um paciente deve
 - **Placa**: Arduino Uno R3;
 - **Sensores**: Botões (2);
 - **Atuadores**: LED, Buzzer (Alarme Sonoro);
-- **Outros componentes**: Protoboard (fins educacionais), 3 resistores (2 de 220 ohms e 1 de 1kohms), jumpers, cabo usb.
+- **Outros componentes**: Protoboard (fins educacionais), 4 resistores (2 de 220 ohms e 2 de 1kohms), jumpers, cabo usb.
 
 ### Software
 
@@ -60,16 +60,15 @@ O sistema de alerta foi desenvolvido para monitorar o tempo que um paciente deve
 
 ## Montagem do Circuito
 
-- **Botão de Início**: Conectado ao pino 2 do Arduino.
-- **Botão de Parada**: Conectado ao pino 3 do Arduino.
-- **LED**: Conectado ao pino 13 do Arduino.
-- **Buzzer**: Conectado ao pino 12 do Arduino.
+- **Botão de Início (Botão Esquerdo)**: Conectado ao pino 2 do Arduino. ( E usando um resistor de 1k ohms)
+- **Botão de Parada (Botão Direito)**: Conectado ao pino 3 do Arduino. ( E usando um resistor de 1k ohms)
+- **LED**: Conectado ao pino 13 do Arduino. ( E usando um resistor de 220 ohms)
+- **Buzzer**: Conectado ao pino 12 do Arduino. ( E usando um resistor de 220 ohms)
+ 
+- Foto do Circuito:
 
-<img src="Caminho-Montagem-Circuito.png" alt="caminho-montagem-circuito" />
+<img src="imagem circuito.png" alt="imagem circuito" />
 
-- Pinagem:
-
-<img src="Pinagem.png" alt="Guia-Pinagem" width="1500" height="900"/>
 
 ---
 
@@ -171,6 +170,6 @@ void loop() {
 
 ## Referências
 
-1. https://www.tinkercad.com/things/1unuX2OeU4X-sistema-de-alerta-para-monitoramento-de-pacientes?sharecode=9TAe8z6p8THZwofrSDmh2QAxmH0FTaxHn06dodB2yvQ
+1. https://www.tinkercad.com/things/0AGIYzrofge-cronometro-medicamento?sharecode=QG3AHg3sttnB9kFDLHvF0CRrvwaY2t94L4rC_Bjr-5M
 2. https://docs.arduino.cc/libraries/liquidcrystal/
 3. https://www.arduino.cc/en/software

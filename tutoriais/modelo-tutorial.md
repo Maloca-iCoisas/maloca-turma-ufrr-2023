@@ -1,6 +1,6 @@
-# Detector de Proximidade com Alarme e LCD
+# Título do Tutorial
 
-**Descrição:** Neste tutorial, vamos criar um Detector de Proximidade utilizando um Arduino Uno, um sensor de ultrassom HC-SR04, um buzzer, um LED e um LCD 16x2 para exibir a distância medida. Este projeto pode ser aplicado na área da saúde para monitorar pacientes acamados, alertando cuidadores sobre movimentações ou quedas, sendo um sistema simples de aplicar."
+**Descrição:** Breve introdução ao tutorial, explicando o objetivo do projeto, as habilidades que serão adquiridas e o público-alvo. Ex.: "Neste tutorial, vamos desenvolver um sistema de monitoramento de sinais vitais usando uma ESP32 com sensores de temperatura e frequência cardíaca."
 
 ---
 
@@ -19,7 +19,7 @@
 
 ## Introdução
 
-O Detector de Proximidade com Alarme é um sistema simples que utiliza o HC-SR04 para medir a distância de objetos próximos. Quando a distância é inferior a um limite configurado (ex.: 50 cm), o sistema aciona um buzzer e um LED para alertar sobre a proximidade. O LCD exibe a distância em tempo real. Este projeto é ideal para aplicações na saúde, como monitoramento de pacientes com mobilidade reduzida.
+Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monitoramento de sinais vitais em tempo real para pacientes, ou um sistema de alarme para quedas. Inclua uma breve visão sobre como o projeto se integra ao ambiente IoT.
 
 ---
 
@@ -27,16 +27,16 @@ O Detector de Proximidade com Alarme é um sistema simples que utiliza o HC-SR04
 
 ### Hardware
 
-- **Placa**: Arduino Uno.
-- **Sensores**: HC-SR04 (sensor de ultrassom) para medir o movimento do paciente.
-- **Atuadores**: Buzzer ativo, LED (vermelho)
-- **Outros componentes**: Protoboard, jumpers, resistor 220 Ω, e monitor LCD 16x2.
+- **Placa**: Arduino, ESP32, Raspberry Pi
+- **Sensores**: Detalhe cada sensor, como sensores de temperatura, oxímetro, acelerômetro, entre outros
+- **Atuadores**: Como LEDs, buzzer, relés, etc.
+- **Outros componentes**: Jumpers, resistores, display LCD, etc.
 
 ### Software
 
-- **Linguagens**: C/C++ para Arduino.
-- **IDE**: Arduino IDE.
-- **Bibliotecas**: LiquidCrystal.
+- **Linguagens**: C/C++ para Arduino e ESP32, Python para Raspberry Pi
+- **IDE**: Arduino IDE, Thonny para Raspberry Pi, VS Code (opcional)
+- **Bibliotecas**: Liste as bibliotecas necessárias, como `Adafruit_Sensor`, `DHT`, entre outras.
 
 ---
 
@@ -44,35 +44,27 @@ O Detector de Proximidade com Alarme é um sistema simples que utiliza o HC-SR04
 
 ### Passo 1: Instalação do Software
 
-- **Arduino IDE**: Pesquise Arduino IDE download no navegador, abra o link no site oficial do Arduino e baixe a versão compativel com seu sistema.
-- **Simulador TinkerCad**: Para melhores resultados, simule no site Tinkercad o circuito utilizado. Não precisa ser instalado, basta pesquisar tinkercad no navegador e entrar no site.
-- **Bibliotecas**: LiquidCrystal: Normalmente já vem instalada com o Arduino IDE, mas caso não venha, siga os seguintes passos: Abra o Arduino IDE, vá em tools (Ferramentas),
-agora clique em "Manage Libraries", pesquise por LiquidCrystal by Arduino.
+- **Arduino IDE**: Instruções para instalar e configurar a IDE do Arduino para ESP32/Arduino.
+- **Thonny Python**: Configuração do Thonny para programar em Python no Raspberry Pi.
+- **Bibliotecas**: Como instalar as bibliotecas necessárias. Exemplo:
 
+```bash
+# Instalar bibliotecas do Python
+pip install Adafruit_DHT
+```
 
 ### Passo 2: Configuração das Placas
 
-- **Arduino Uno**: Vamos utilizar o Arduino Uno, que já vem por padrão instalado no Arduino IDE. Para selecionar a placa desejada vá em "Select Board" (selecionar placa)
-selecione a entrada USB que vai usar, e por fim selecione o Arduino Uno.
+- **Arduino/ESP32**: Passos para configurar a placa e selecionar a porta correta na IDE.
+- **Raspberry Pi**: Configuração do GPIO para comunicação com os sensores.
 
 ---
 
 ## Montagem do Circuito
 
-Monte o circuito conforme o diagrama abaixo:
+Insira um diagrama do circuito, ou descreva as conexões principais, incluindo onde cada sensor e atuador deve ser conectado. 
 
-HC-SR04:
-VCC → 5V, GND → GND, TRIG → D8, ECHO → D9
-LED:
-Ânodo → Resistor (220 Ω) → D12, cátodo → GND
-Buzzer:
-Positivo → D11, Negativo → GND
-LCD 16x2:
-RS → D7, E → D6, D4 → D5, D5 → D4, D6 → D3, D7 → D2
-VSS → GND, VDD → 5V, V0 → Terminal central do potenciômetro
-Nota: Ajuste o potenciômetro para configurar o contraste do LCD.
-> **Nota**: Imagem do circuito feito no simulador Tinkercad.
-![imagem_2024-11-16_173940039](https://github.com/user-attachments/assets/48dbace3-54d9-4213-a72e-16ed0d12aeb5)
+> **Nota**: Use imagens ou diagramas para auxiliar a compreensão.
 
 ---
 
@@ -80,80 +72,45 @@ Nota: Ajuste o potenciômetro para configurar o contraste do LCD.
 
 ### Passo 1: Configuração dos Sensores e Atuadores
 
-Copie e cole o código abaixo na IDE do Arduino. Depois, faça o upload para a placa.
+Forneça o código para a configuração dos sensores. Por exemplo, para medir temperatura e batimentos cardíacos:
 
-**Código em C/C++ para Arduino Uno:**
+**Exemplo em C para ESP32:**
 
 ```cpp
-#include <LiquidCrystal.h>
+#include <DHT.h>
 
-// Configuração do LCD: RS, E, D4, D5, D6, D7
-LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
+#define DHTPIN 2     // Pino do sensor DHT
+#define DHTTYPE DHT11 
 
-#define TRIG_PIN 8
-#define ECHO_PIN 9
-#define LED_PIN 12
-#define BUZZER_PIN 11
+DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  pinMode(TRIG_PIN, OUTPUT);
-  pinMode(ECHO_PIN, INPUT);
-  pinMode(LED_PIN, OUTPUT);
-  pinMode(BUZZER_PIN, OUTPUT);
-
-  lcd.begin(16, 2); // Inicializa o LCD
-  lcd.print("Distance:"); // Linha fixa
-  Serial.begin(9600); // Monitor Serial
+  Serial.begin(9600);
+  dht.begin();
 }
 
 void loop() {
-  long duration, distance;
-
-  // Pulso para o TRIG
-  digitalWrite(TRIG_PIN, LOW);
-  delayMicroseconds(2);
-  digitalWrite(TRIG_PIN, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG_PIN, LOW);
-
-  // Tempo do pulso no ECHO
-  duration = pulseIn(ECHO_PIN, HIGH);
-
-  // Calcula distância (cm)
-  distance = duration * 0.034 / 2;
-
-  // Exibe no LCD
-  lcd.setCursor(0, 1);
-  lcd.print("    ");  // Limpa linha
-  lcd.setCursor(0, 1);
-  lcd.print(distance);
-  lcd.print(" cm");
-
-  // Aciona LED e buzzer se perto
-  if (distance > 0 && distance < 50) {
-    digitalWrite(LED_PIN, HIGH);
-    digitalWrite(BUZZER_PIN, HIGH);
-  } else {
-    digitalWrite(LED_PIN, LOW);
-    digitalWrite(BUZZER_PIN, LOW);
-  }
-
-  delay(500); // Atualiza a cada 0.5s
+  float temp = dht.readTemperature();
+  Serial.println(temp);
+  delay(2000);
 }
-
 ```
 
+**Exemplo em Python para Raspberry Pi:**
+
+```python
+import Adafruit_DHT
+
+sensor = Adafruit_DHT.DHT11
+pin = 4  # Pino GPIO
+
+humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+print(f"Temperatura: {temperature}ºC")
+```
 
 ### Passo 2: Processamento e Lógica de Alerta
 
-**Aquisição de Dados:**
-A distância é calculada com base no tempo de ida e volta do pulso ultrassônico medido pelo sensor HC-SR04.
-
-**Condição de Alerta:**
-Se a distância for menor que um limite pré-definido (ex.: 50 cm), o LED será aceso e o buzzer ativado. Caso contrário, ambos permanecem desligados.
-
-**Saída no LCD:**
-A distância é exibida em tempo real no LCD 16x2.
+Adicione a lógica para processar os dados e acionar atuadores, como LEDs ou buzzer, caso as leituras excedam um determinado limite.
 
 ---
 
@@ -161,9 +118,9 @@ A distância é exibida em tempo real no LCD 16x2.
 
 Descreva os testes para validar cada parte do projeto:
 
-1. **Monitoramento de distância no LCD**: A distância medida pelo sensor deve ser exibida no LCD.
-2. **Validação dos atuadores**: Aproximar um objeto a menos de 50 cm deve acionar o LED e o buzzer.
-3. **Monitor Serial**: Utilize o Monitor Serial para conferir os valores medidos pelo sensor.
+1. **Testando Sensores**: Verifique se as leituras são consistentes e corretas.
+2. **Validação dos Atuadores**: Confirme que os atuadores funcionam corretamente.
+3. **Monitoramento em Tempo Real**: Teste o sistema completo em condições simuladas para garantir que funciona conforme o esperado.
 
 ---
 
@@ -171,9 +128,9 @@ Descreva os testes para validar cada parte do projeto:
 
 Sugestões para melhorar o projeto, como:
 
-- **Conexão Wi-Fi**: Use um ESP32 para enviar os dados para um servidor na nuvem.
-- **Adição de sensores**: Integre um sensor de temperatura ou de movimento para criar um sistema mais completo.
-- **Alarme remoto**: Configure uma comunicação Bluetooth para notificar um aplicativo móvel.
+- Adicionar comunicação Wi-Fi (ESP32) para enviar dados para uma nuvem.
+- Integrar um banco de dados para registro das leituras.
+- Conectar-se a uma aplicação móvel para visualização remota.
 
 ---
 
@@ -181,13 +138,6 @@ Sugestões para melhorar o projeto, como:
 
 Liste todas as referências e links úteis para guias, bibliotecas, e materiais adicionais que ajudem a complementar o tutorial.
 
-**Video sobre o sensor HC-SR04**
-https://www.youtube.com/watch?v=n-gJ00GTsNg
-
-**Video sobre um circuito de alerta usando HC-SR04**
-https://www.youtube.com/watch?v=QEIl2Nxot5M
-
-
 ---
 
-Com este circuito podemos ter uma rápida atuação quando um paciente com mobilidade limitada cair, podendo evitar uma tragédia!
+Espero que esse modelo ajude a organizar o conteúdo e fornecer uma estrutura clara e completa para tutoriais de IoT no contexto da saúde.

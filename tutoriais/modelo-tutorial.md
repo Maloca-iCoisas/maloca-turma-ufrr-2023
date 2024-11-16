@@ -1,143 +1,127 @@
-# Título do Tutorial
+# Circuito com arduíno para medir a umidade do ar 
+## Sistema Para Medir A Qualidade Do Ar 
+- Um sistema voltado para medir a qualidade do ar e a sua umidade podendo ser utilizado em ambientes que tratam de pacientes com problemas respiratórios pois em doenças tais quais as asma DPOC  e quadros de ate mesmo hipóxia pode ser agravados pela falta de umidade no ar 
+### O que foi implementado:
+- Um circuito composto por sensores e arduíno que colabora para a manutenção da qualidade do ar  
+### Ajudar No Tratamento:
+- Voltado para a manutenção da qualidade do ar onde ajudará o tratamento de pacietes com doenças respiratórias. 
+## Experimentos:
 
-**Descrição:** Breve introdução ao tutorial, explicando o objetivo do projeto, as habilidades que serão adquiridas e o público-alvo. Ex.: "Neste tutorial, vamos desenvolver um sistema de monitoramento de sinais vitais usando uma ESP32 com sensores de temperatura e frequência cardíaca."
+### Teste No Simulador :
+- O teste foi feito no simulador wokwi onde foi feito um sistema em arduíno que utilizando do sensor exibe um aviso caso a umidade do ar esteja em nível alarmante. 
 
----
 
-## Índice
+### Resultados dos Testes:
 
-1. [Introdução](#introdução)
-2. [Requisitos](#requisitos)
-3. [Configuração do Ambiente](#configuração-do-ambiente)
-4. [Montagem do Circuito](#montagem-do-circuito)
-5. [Programação](#programação)
-6. [Teste e Validação](#teste-e-validação)
-7. [Expansões e Melhorias](#expansões-e-melhorias)
-8. [Referências](#referências)
+- A tela lcd exibe um aviso perfeitamente  
+- No caso de umidade baixa : 
+  ![Umidade_Baixa](https://github.com/ArthurRamos26/Tutorial_maloca/blob/06be1c565b82277954f840526d2dcec7d3d5c56e/sensor%20baixo%20%20132018.png)
+- No caso de umidade normal : 
+ ![Umidade_normal](https://github.com/ArthurRamos26/Tutorial_maloca/blob/06be1c565b82277954f840526d2dcec7d3d5c56e/foto%20de%20trabalho%20de%20boa%20.png)
 
----
+## Informações Adicionais
+### Hardware Utilizado:
+- Arduíno uno (para mandar os comandos de print da tela e interpretar os sinais analógicos dos sensores)
+- Sensor DHT-22 (Utilizado para checar a umidade relativa do ambiente)
+-  Protoboard (utilizado para faciltar as conexões entre os componentes)
+-  Tela LCD 16X2 (utilizado para mandar um aviso caso haja alteração na umidade do ar )
+- Fios e cabos (para fazer as conexões entre os componentes)
+- ![Circuito](https://github.com/ArthurRamos26/Tutorial_maloca/blob/06be1c565b82277954f840526d2dcec7d3d5c56e/sensor%20desligado%20.png)
 
-## Introdução
-
-Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monitoramento de sinais vitais em tempo real para pacientes, ou um sistema de alarme para quedas. Inclua uma breve visão sobre como o projeto se integra ao ambiente IoT.
-
----
-
-## Requisitos
-
-### Hardware
-
-- **Placa**: Arduino, ESP32, Raspberry Pi
-- **Sensores**: Detalhe cada sensor, como sensores de temperatura, oxímetro, acelerômetro, entre outros
-- **Atuadores**: Como LEDs, buzzer, relés, etc.
-- **Outros componentes**: Jumpers, resistores, display LCD, etc.
-
-### Software
-
-- **Linguagens**: C/C++ para Arduino e ESP32, Python para Raspberry Pi
-- **IDE**: Arduino IDE, Thonny para Raspberry Pi, VS Code (opcional)
-- **Bibliotecas**: Liste as bibliotecas necessárias, como `Adafruit_Sensor`, `DHT`, entre outras.
-
----
-
-## Configuração do Ambiente
-
-### Passo 1: Instalação do Software
-
-- **Arduino IDE**: Instruções para instalar e configurar a IDE do Arduino para ESP32/Arduino.
-- **Thonny Python**: Configuração do Thonny para programar em Python no Raspberry Pi.
-- **Bibliotecas**: Como instalar as bibliotecas necessárias. Exemplo:
-
-```bash
-# Instalar bibliotecas do Python
-pip install Adafruit_DHT
-```
-
-### Passo 2: Configuração das Placas
-
-- **Arduino/ESP32**: Passos para configurar a placa e selecionar a porta correta na IDE.
-- **Raspberry Pi**: Configuração do GPIO para comunicação com os sensores.
-
----
-
-## Montagem do Circuito
-
-Insira um diagrama do circuito, ou descreva as conexões principais, incluindo onde cada sensor e atuador deve ser conectado. 
-
-> **Nota**: Use imagens ou diagramas para auxiliar a compreensão.
-
----
-
-## Programação
-
-### Passo 1: Configuração dos Sensores e Atuadores
-
-Forneça o código para a configuração dos sensores. Por exemplo, para medir temperatura e batimentos cardíacos:
-
-**Exemplo em C para ESP32:**
-
-```cpp
+### Simulação Utilizado:
+- A  simulação foi feita  utilizando o site wokwi sendo o link dela : https://wokwi.com/projects/414730818955336705
+### Observações:
+- O código utilizado para o arduíno fora : 
 #include <DHT.h>
+#include <LiquidCrystal.h>
 
-#define DHTPIN 2     // Pino do sensor DHT
-#define DHTTYPE DHT11 
+#define DHTPIN       
+  
+#define DHTTYPE DHT22   
 
-DHT dht(DHTPIN, DHTTYPE);
 
-void setup() {
-  Serial.begin(9600);
+ DHT dht(DHTPIN, DHTTYPE);
+ 
+
+
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup()  {
+
+  // Inicializa o LCD
+  
+  lcd.begin(16, 2);
+  
+  lcd.print("Medindo...");
+
+  // Inicializa o sensor DHT
+ 
   dht.begin();
+
+  
+  pinMode(A5, INPUT);
 }
 
 void loop() {
-  float temp = dht.readTemperature();
-  Serial.println(temp);
+  
+  // Lê a umidade do sensor DHT22
+  
+  float umidade = dht.readHumidity();
+
+  // Verifica se a leitura foi bem-sucedida
+  
+  if (isnan(umidade)) {
+    
+    lcd.clear();
+    
+    lcd.print("Erro no DHT22");
+    
+    return;
+  
+  }
+
+  // Exibe a umidade na primeira linha
+  
+  
+  lcd.clear();
+  
+  lcd.setCursor(0, 0);
+  
+  lcd.print("Umidade: ");
+  
+  lcd.print(umidade);
+  
+  lcd.print("%");
+
+  // Verifica se a umidade está abaixo de 50%
+  
+  if (umidade < 50) {
+  
+    lcd.setCursor(0, 1);
+  
+    lcd.print("Alerta! Umid. Baixa");
+  
+  }
+
+  // Delay de 2 segundos antes de ler novamente
+  
   delay(2000);
 }
-```
 
-**Exemplo em Python para Raspberry Pi:**
+- Onde ele importa as bibliotecas do lcd e do sensor dht-22 inicialmente após isso é feita a medição da umidade e emite um aviso caso a mesma esteja em um nível baixo em destaque estão os prints que serão feitos nos respectivos casos.
 
-```python
-import Adafruit_DHT
+## Checklist
 
-sensor = Adafruit_DHT.DHT11
-pin = 4  # Pino GPIO
+- [ ] Código atende às normas do projeto e foi formatado de acordo com as diretrizes.
+- [ ] Código foi testado e validado em ambiente de desenvolvimento com hardware real (Arduino, Raspberry Pi, ESP32) ou simulação (tinkercad).
+- [ ] Documentação atualizada para refletir as mudanças realizadas.
+- [ ] Código escrito e comentado em **C** ou **Python** de acordo com os padrões do projeto.
+- [ ] Testes com sensores e atuadores específicos incluídos e detalhados na descrição dos testes.
 
-humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-print(f"Temperatura: {temperature}ºC")
-```
+## Tipo de Mudança
 
-### Passo 2: Processamento e Lógica de Alerta
-
-Adicione a lógica para processar os dados e acionar atuadores, como LEDs ou buzzer, caso as leituras excedam um determinado limite.
-
----
-
-## Teste e Validação
-
-Descreva os testes para validar cada parte do projeto:
-
-1. **Testando Sensores**: Verifique se as leituras são consistentes e corretas.
-2. **Validação dos Atuadores**: Confirme que os atuadores funcionam corretamente.
-3. **Monitoramento em Tempo Real**: Teste o sistema completo em condições simuladas para garantir que funciona conforme o esperado.
-
----
-
-## Expansões e Melhorias
-
-Sugestões para melhorar o projeto, como:
-
-- Adicionar comunicação Wi-Fi (ESP32) para enviar dados para uma nuvem.
-- Integrar um banco de dados para registro das leituras.
-- Conectar-se a uma aplicação móvel para visualização remota.
-
----
-
-## Referências
-
-Liste todas as referências e links úteis para guias, bibliotecas, e materiais adicionais que ajudem a complementar o tutorial.
-
----
-
-Espero que esse modelo ajude a organizar o conteúdo e fornecer uma estrutura clara e completa para tutoriais de IoT no contexto da saúde.
+- [ ] Correção de bug
+- [x] Nova funcionalidade
+- [ ] Alteração de funcionalidade existente
+- [ ] Documentação

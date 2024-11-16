@@ -26,8 +26,8 @@ Simulação no WokWi para avaliar funcionamento sem hardware real.
 ## Checklist
 
 - [x] Código atende às normas do projeto e foi formatado de acordo com as diretrizes.
-- [ ] Código foi testado e validado em ambiente de desenvolvimento com hardware real (Arduino, Raspberry Pi, ESP32) ou simulação (tinkercad).
-- [ ] Documentação atualizada para refletir as mudanças realizadas.
+- [x] Código foi testado e validado em ambiente de desenvolvimento com hardware real (Arduino, Raspberry Pi, ESP32) ou simulação (workwi).
+- [x] Documentação atualizada para refletir as mudanças realizadas.
 - [x] Código escrito e comentado em **C** ou **Python** de acordo com os padrões do projeto.
 - [x] Testes com sensores e atuadores específicos incluídos e detalhados na descrição dos testes.
 

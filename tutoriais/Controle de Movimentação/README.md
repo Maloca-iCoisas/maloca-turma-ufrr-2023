@@ -142,8 +142,8 @@ Sugestões para melhorar o projeto:
 
 ## Referências
 
-Link da simulação: https://wokwi.com/projects/407047625786887169.
-Documentação do Arduino: https://www.arduino.cc/.
-Documentação do sensor HC-SR04: https://docs.arduino.cc/libraries/hcsr04-ultrasonic-sensor/
+- Link da simulação: https://wokwi.com/projects/407047625786887169.
+- Documentação do Arduino: https://www.arduino.cc/.
+- Documentação do sensor HC-SR04: https://docs.arduino.cc/libraries/hcsr04-ultrasonic-sensor/
 
 ---

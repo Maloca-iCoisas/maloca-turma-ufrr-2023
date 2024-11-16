@@ -3,24 +3,32 @@
 ## Descrição do Pull Request
 
 ### O que foi implementado:
-<!-- Descreva brevemente as alterações propostas neste Pull Request, incluindo quais funcionalidades, correções ou melhorias foram introduzidas. -->
+<!-- Implementação de um tutorial para o sensor ultrassônico HC-SR04 com Arduino, incluindo código, diagrama de conexão e instruções detalhadas. -->
 
 - 
 
 ### Contexto e Motivação:
-<!-- Explique o problema ou a necessidade que levou a esta implementação, especialmente considerando o contexto de IoT na área da saúde. -->
+<!-- Este tutorial busca facilitar o uso do sensor HC-SR04 para medir distâncias em projetos IoT, servindo como base para aplicações como robótica, automação e monitoramento de proximidade. -->
 
 - 
 
 ## Testes Realizados
 
 ### Descrição dos Testes:
-<!-- Descreva os testes realizados, especialmente aqueles envolvendo sensores e atuadores, e as configurações utilizadas para verificar a funcionalidade. -->
+<!-- Hardware:
+Montagem do circuito com Arduino Uno, sensor HC-SR04 e jumpers.
+Verificação de alimentação e sinais de controle (pinos TRIG e ECHO).
+Software:
+Código testado no Arduino IDE, verificando leituras no monitor serial.
+Simulação no Tinkercad para avaliar funcionamento sem hardware real.
+ -->
 
 - 
 
 ### Resultados dos Testes:
-<!-- Indique os resultados observados ao realizar os testes em placas como Arduino, Raspberry Pi e ESP32. -->
+<!-- Distâncias foram medidas com precisão em ambientes reais e simulados.
+Código executado sem erros ou falhas de compilação.
+-->
 
 - 
 
@@ -35,32 +43,31 @@
 ## Tipo de Mudança
 
 - [ ] Correção de bug
-- [ ] Nova funcionalidade
+- [x] Nova funcionalidade
 - [ ] Alteração de funcionalidade existente
-- [ ] Documentação
+- [x] Documentação
 
 ## Informações Adicionais
 
 ### Hardware Utilizado:
-<!-- Liste o hardware específico (ex: Arduino Uno, ESP32) e os sensores ou atuadores associados a este PR. -->
+<!-- Arduino Uno
+Sensor Ultrassônico HC-SR04
+Protoboard e jumpers
+ -->
 
 - 
 
 ### Simulação Utilizado:
-<!-- Liste os componentes específico (ex: Arduino Uno, ESP32) e os sensores ou atuadores associados a este PR, bem como, o link da simulação. -->
+<!-- https://wokwi.com/projects/407047625786887169 -->
 
 -
 
 ### Observações:
-<!-- Detalhes adicionais ou considerações que possam ajudar na revisão do código. -->
+<!-- Código testado com intervalos de 1 segundo entre medições.
+Valores exibidos no monitor serial podem ser ajustados para exibir em unidades diferentes (cm, mm, etc.). -->
 
 - 
 
 ## Issue Relacionada
 
-<!-- Se aplicável, mencione a issue relacionada a este PR (ex: `Closes #123`) -->
 Closes #
-
----
-
-**Nota:** Certifique-se de que o código e as descrições estejam claros e detalhados o suficiente para uma revisão eficaz.

@@ -15,6 +15,7 @@
   - [Configuração do Ambiente](#configuração-do-ambiente)
     - [Passo 1: Instalação do Software](#passo-1-instalação-do-software)
     - [Passo 2: Configuração das Placas](#passo-2-configuração-das-placas)
+  - [](#)
   - [Montagem do Circuito](#montagem-do-circuito)
   - [Programação](#programação)
     - [Passo 1: Configuração dos Sensores e Atuadores](#passo-1-configuração-dos-sensores-e-atuadores)
@@ -44,7 +45,7 @@ Este circuito tem como finalidade simular uma situação recorrente hospitais qu
 
 - **Linguagens**: C/C++ para Arduino.
 - **IDE**: Arduino IDE.
-- **Bibliotecas**:`PulseSensorPlayground`
+- **Bibliotecas**:`PulseSensor Playground`
 
 ---
 
@@ -52,20 +53,24 @@ Este circuito tem como finalidade simular uma situação recorrente hospitais qu
 
 ### Passo 1: Instalação do Software
 
-- **Arduino IDE**: Instruções para instalar e configurar a IDE do Arduino para ESP32/Arduino.
-- **Thonny Python**: Configuração do Thonny para programar em Python no Raspberry Pi.
-- **Bibliotecas**: Como instalar as bibliotecas necessárias. Exemplo:
-
-```bash
-# Instalar bibliotecas do Python
-pip install Adafruit_DHT
-```
+- **Arduino IDE**: Faça o download do software Arduino IDE que no tutorial a partir do link https://www.arduino.cc/en/software.
+  
+- **Bibliotecas**: Para instalação da biblioteca necessária siga as etapas abaixo:
+1. Após realizar a instalação do Arduino IDE procure pelo icone que são vários livros um ao lado do outro:
+![Etapa 1](1-selecao-biblioteca.png)
+2. Agora na área de texto digite "PulseSensor Playground" e clique em "INSTALL" para instalar a única opção disponível.
+![Etapa 2](2-instalacao-biblioteca.png)
 
 ### Passo 2: Configuração das Placas
 
-- **Arduino/ESP32**: Passos para configurar a placa e selecionar a porta correta na IDE.
-- **Raspberry Pi**: Configuração do GPIO para comunicação com os sensores.
-
+- **Arduino**: Passo a passo para configuração da placa e porta que será utilizada.
+1. Conecte o arduino ao seu conputador utilizando o cabo USB.
+2. Clique na parte destacada:
+![Etapa 1](3-select-board.png)
+3. Após clicar em "Select Board" clique em:
+![Etapa 2](4-selecao-port.png)
+4. Na área de texto pesquise por "arduino uno", clique na opção de mesmo nome e no final clique em "OK" para confirmar:
+![Etapa 3](5-arduino-uno.png)
 ---
 
 ## Montagem do Circuito

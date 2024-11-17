@@ -195,16 +195,14 @@ void loop() {
   delay(500); // Espera 500 ms
 }
 ```
-
 ---
 
 ## Teste e Validação
 
 Descreva os testes para validar cada parte do projeto:
 
-1. **Testando Sensores**: Verifique se as leituras são consistentes e corretas.
-2. **Validação dos Atuadores**: Confirme que os atuadores funcionam corretamente.
-3. **Monitoramento em Tempo Real**: Teste o sistema completo em condições simuladas para garantir que funciona conforme o esperado.
+1. **Testando Sensores**: Conecte o sensor, verifique os BPM no Serial Monitor e confirme se os valores são consistentes.
+2. **Validação dos Atuadores**: Simule BPM fora dos limites e confira se o buzzer liga/desliga corretamente.
 
 ---
 
@@ -212,14 +210,17 @@ Descreva os testes para validar cada parte do projeto:
 
 Sugestões para melhorar o projeto, como:
 
-- Adicionar comunicação Wi-Fi (ESP32) para enviar dados para uma nuvem.
-- Integrar um banco de dados para registro das leituras.
-- Conectar-se a uma aplicação móvel para visualização remota.
+- Notificação para Médicos e Enfermeiros: Enviar alertas diretamente para dispositivos móveis dos responsáveis.
+- Buzzer Remoto: Adicionar um buzzer em ambientes afastados para alertar médicos quando longe do paciente.
+- Interface Gráfica: Desenvolver uma aplicação simples para visualização, análise de dados e notificar as alterações.
 
 ---
 
 ## Referências
 
-Liste todas as referências e links úteis para guias, bibliotecas, e materiais adicionais que ajudem a complementar o tutorial.
+1.Link para simulação no Tinkercard: https://www.tinkercad.com/things/gQEuSWMbvBM-monitoramento-de-batimentos-cardiacos-com-alerta-sonoro
+2.Site oficial da biblioteca PulseSensor Playground: https://pulsesensor.com/pages/installing-our-playground-for-pulsesensor-arduino
+3.Site com informações sobre o buzzer: https://components101.com/misc/buzzer-pinout-working-datasheet
+> **Obs.:**: O sensor de de pulso não tem disponível no Tinkercard, logo para haver uma simulação fiz adaptações e comentários na simulação.
 
 ---

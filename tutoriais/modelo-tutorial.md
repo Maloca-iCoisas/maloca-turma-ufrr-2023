@@ -53,7 +53,10 @@ O monitoramento de temperatura corporal é uma aplicação essencial para a saú
 
 1. No IDE arduino após instalado, clicar no ícone da biblioteca.
 
-![biblioteca LiquidCrystal ](https://github.com/user-attachments/assets/59cc5b68-4a15-44b4-86df-e27ce9e226b7)
+<div>
+  <img align="center" height "200em" src="https://github.com/user-attachments/assets/7f4915eb-8a86-4066-8c51-9b90eff47994" width="500"/>
+<div>
+
 
 2. Pesquise por "LiquidCrystal" e "math", selecione e clique em Install.
 
@@ -70,13 +73,12 @@ O monitoramento de temperatura corporal é uma aplicação essencial para a saú
 1. Conecte o Arduino via usb;
 2. Selecione Select Board;
 
-![selecionarBoard](https://github.com/user-attachments/assets/f65764af-3df0-4078-b18d-e64eb6825f2f)
+<div>
+  <img align="center" height "200em" src="https://github.com/user-attachments/assets/0913e864-9f1d-4aa7-864d-052a52986e15" width="500"/>
+<div>
 
 3. Após selecionado, aparecerá as opções de portas e você clicará na opção: Select Other Board and port;
 4. Você selecionará a opção de Arduino Mega ou Mega 2560;
-
-![selecionarBoard](https://github.com/user-attachments/assets/3ea98c1a-c3c6-41c0-9d3d-d719ce89f738)
-
 5. Por último selecionará a porta.
 
 ---
@@ -85,9 +87,14 @@ O monitoramento de temperatura corporal é uma aplicação essencial para a saú
 
 Conecte os componentes conforme o diagrama abaixo: 
 
-![print do circuito](https://github.com/user-attachments/assets/c28ad78a-9654-4264-a680-1ca164b99ba9)
+<div>
+  <img align="center" height "200em" src="https://github.com/user-attachments/assets/2fe54588-342c-4d65-a1b3-cb152ab71227" width="500"/>
+<div>
 
-Pinagem dos Componentes
+
+- **Pinagem dos Componentes:**
+
+
   ## 1. Arduino UNO
     Pino A0: Conectado ao sensor de temperatura para leitura analógica.
     Pinos Digitais 12, 11, 5, 4, 3, 2: Conectados ao display LCD 16x2 para exibir a temperatura.
@@ -125,6 +132,7 @@ Pinagem dos Componentes
 
 Neste projeto,vamos configurar O LCD e o thingSpeak no Arduino.
 
+```cpp
 **Código em C++ para Arduino:**
 
 #include <LiquidCrystal.h> // Inclui a biblioteca para controle do display LCD
@@ -138,13 +146,16 @@ String ssid = "Simulator Wifi";              // Nome da rede Wi-Fi
 String password = "";                        // Senha da rede (neste caso, vazia)
 String host = "https://api.thingspeak.com";  // Endereço do ThingSpeak
 const int httpPort = 80;                     // Porta para conexão HTTP
-String API_KEY = "KN0GF1ZWJ93CIGYS";         // Chave de API para escrita no ThingSpeak
+String API_KEY = "CHAVE_API_KEY";         // Chave de API para escrita no ThingSpeak
 String uri = "/update?api_key=" + API_KEY + "&field1=";
+```
+
 
 ### Passo 2: Processamento e Lógica do Sistema
 
 Após as configurações necessárias, vamos adicionar a lógica para o funcionamento do sistema
 
+```cpp
 int temp; // Variável para armazenar a temperatura lida
 
 void setup() {
@@ -207,6 +218,14 @@ void enviaTemperatura() {
   delay(10);  // Aguarda a confirmação de envio
   if (!Serial.find("SEND OK\r\n")) return;
 }
+```
+
+Após o código rodar, o gráfico na plataforma ThingSpeak ficaria assim:
+
+<div>
+  <img align="center" height "200em" src="https://github.com/user-attachments/assets/f1b466ac-19aa-4ce5-b728-e2c7cf70b69c" width="500"/>
+<div>
+
 
 ## Teste e Validação
 

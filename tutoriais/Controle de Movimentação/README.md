@@ -73,7 +73,6 @@ Nota: Use resistores divisores de tensão no pino ECHO se necessário, para prot
 
 ### Passo 1: Configuração dos Sensores e Atuadores
 
-Forneça o código para a configuração dos sensores. Por exemplo, para medir temperatura e batimentos cardíacos:
 
 **Código para monitoramento com HC-SR04 em C para Arduino:**
 

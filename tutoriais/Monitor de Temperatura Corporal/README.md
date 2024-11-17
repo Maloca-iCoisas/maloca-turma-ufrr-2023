@@ -1,4 +1,4 @@
-# Verificação de Temperatura Corporal com Alerta
+# Monitor de Temperatura Corporal
 
 **Descrição:**  
 Neste tutorial, você aprenderá a criar um sistema simples para monitorar a temperatura corporal utilizando um Arduino e um sensor de temperatura. Se a temperatura ultrapassar um valor pré-estabelecido, um LED ou buzzer será acionado, alertando para possíveis casos de febre. Este projeto é voltado para iniciantes em eletrônica e programação.

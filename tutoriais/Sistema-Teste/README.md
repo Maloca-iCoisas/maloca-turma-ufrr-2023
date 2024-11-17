@@ -15,7 +15,6 @@
   - [Configuração do Ambiente](#configuração-do-ambiente)
     - [Passo 1: Instalação do Software](#passo-1-instalação-do-software)
     - [Passo 2: Configuração das Placas](#passo-2-configuração-das-placas)
-  - [](#)
   - [Montagem do Circuito](#montagem-do-circuito)
   - [Programação](#programação)
     - [Passo 1: Configuração dos Sensores e Atuadores](#passo-1-configuração-dos-sensores-e-atuadores)
@@ -37,9 +36,9 @@ Este circuito tem como finalidade simular uma situação recorrente hospitais qu
 ### Hardware
 
 - **Placa**: Arduino Uno
-- **Sensores**: Sensor de batimentos cardíacos
+- **Sensores**: Sensor de batimentos cardíacos(Sensor de Pulso)
 - **Atuadores**: Buzzer(emissão de alerta sonoro)
-- **Outros componentes**: Protoboard, 1 resistor de 330Ω(depende do modelo do buzzer) e 5 jumpers
+- **Outros componentes**: Protoboard, 1 resistor de 1kΩ(depende do modelo do buzzer) e 5 jumpers
 
 ### Software
 
@@ -71,13 +70,29 @@ Este circuito tem como finalidade simular uma situação recorrente hospitais qu
 ![Etapa 2](4-selecao-port.png)
 4. Na área de texto pesquise por "arduino uno", clique na opção de mesmo nome e no final clique em "OK" para confirmar:
 ![Etapa 3](5-arduino-uno.png)
+
 ---
 
 ## Montagem do Circuito
 
-Insira um diagrama do circuito, ou descreva as conexões principais, incluindo onde cada sensor e atuador deve ser conectado. 
+Abaixo segue as instruções para montagem:
+1. Preparação da Protoboard e Conexão do GND
+- Conecte o pino GND do Arduino à linha de alimentação negativa (linha preta) da protoboard.
+2. Conexão da Linha Positiva da Protoboard
+- Conecte o pino 5V do Arduino à linha positiva (linha vermelha) da protoboard.
+3. Conexão do Sensor de Batimentos Cardíacos
+- GND do sensor(fio preto) conecta na linha negativa (linha preta) da protoboard a que tá conectada o GND do arduino.
+- VCC do sensor(fio vermelho) à linha positiva (linha vermelha) da protoboard.
+- Sinal do sensor ao pino A0 do Arduino (entrada analógica).
+4. Conexão do Buzzer
+- Conecte o pino positivo (normalmente marcado com um sinal "+" ou na cor vermelha) do buzzer a um pino digital do Arduino o pino 9.
+- Caso o modelo necessite coloque um resistor de 1kΩ a linha do pino positivo do buzzer e na outra ponta use para fazer a ligação com a pino 9.
+- Conecte o pino negativo (normalmente marcado com um sinal "-" ou na cor preta) do buzzer à linha negativa (linha preta) da protoboard, que está conectada ao GND do Arduino.
 
-> **Nota**: Use imagens ou diagramas para auxiliar a compreensão.
+> **Dica**: Tenha bastante atenção ao conectar as portas, ao fazer os caminhos dos cabos, revise todas as conexões e recomendo não fazer alterações com o arduino ligado ao computador.
+
+Abaixo a imagem com o circuito totalmente montado:
+![Imagem Circuito](circuito-completo.png)
 
 ---
 

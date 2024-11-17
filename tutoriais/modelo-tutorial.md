@@ -96,34 +96,33 @@ Conecte os componentes conforme o diagrama abaixo:
 
 
   ## 1. Arduino UNO
-    Pino A0: Conectado ao sensor de temperatura para leitura analógica.
-    Pinos Digitais 12, 11, 5, 4, 3, 2: Conectados ao display LCD 16x2 para exibir a temperatura.
-    Pinos 3.3V e GND: Conectados ao módulo ESP8266 (fornecendo alimentação).
-    Pino 5V: Alimenta o display LCD e o sensor de temperatura.
+    - Pino A0: Conectado ao sensor de temperatura para leitura analógica.
+    - Pinos Digitais 12, 11, 5, 4, 3, 2: Conectados ao display LCD 16x2 para exibir a temperatura.
+    - Pinos 3.3V e GND: Conectados ao módulo ESP8266 (fornecendo alimentação).
+    - Pino 5V: Alimenta o display LCD e o sensor de temperatura.
   ## 2. Display LCD 16x2
-    VSS: Conectado ao GND do Arduino.
-    VDD: Conectado ao 5V do Arduino.
-    V0: Conectado ao potenciômetro para ajustar o contraste.
-    RS: Conectado ao pino digital 12 do Arduino.
-    RW: Conectado ao GND do Arduino.
-    E: Conectado ao pino digital 11 do Arduino.
-    D4, D5, D6, D7: Conectados aos pinos digitais 5, 4, 3 e 2 do Arduino, respectivamente.
-    A (Anodo): Conectado ao 5V através de um resistor para controlar o brilho do display.
-    K (Cátodo): Conectado ao GND.
+    - VSS: Conectado ao GND do Arduino.
+    - VDD: Conectado ao 5V do Arduino.
+    - V0: Conectado ao potenciômetro para ajustar o contraste.
+    - RS: Conectado ao pino digital 12 do Arduino.
+    - RW: Conectado ao GND do Arduino.
+    - E: Conectado ao pino digital 11 do Arduino.
+    - D4, D5, D6, D7: Conectados aos pinos digitais 5, 4, 3 e 2 do Arduino, respectivamente.
+    - A (Anodo): Conectado ao 5V através de um resistor para controlar o brilho do display.
+    - K (Cátodo): Conectado ao GND.
   ## 3. Módulo Wi-Fi ESP8266
-    VCC: Conectado ao pino 3.3V do Arduino.
-    GND: Conectado ao GND do Arduino.
-    TX: Conectado ao RX do Arduino (pino digital 0).
+    - VCC: Conectado ao pino 3.3V do Arduino.
+    - GND: Conectado ao GND do Arduino.
+    - TX: Conectado ao RX do Arduino (pino digital 0).
     RX: Conectado ao TX do Arduino (pino digital 1).
   ## 4. Sensor de Temperatura (por exemplo, LM35 ou TMP36)
-    VCC: Conectado ao 5V do Arduino.
-    GND: Conectado ao GND do Arduino.
-    OUT: Conectado ao pino A0 do Arduino para leitura da temperatura.
+    - VCC: Conectado ao 5V do Arduino.
+    - GND: Conectado ao GND do Arduino.
+    - OUT: Conectado ao pino A0 do Arduino para leitura da temperatura.
   ## 5. Potenciômetro
-    Utilizado para ajustar o contraste do display LCD.
-    Terminal 1: Conectado ao GND.
-    Terminal 2 (Pino Central): Conectado ao pino V0 do LCD.
-    Terminal 3: Conectado ao 5V.
+    - Terminal 1: Conectado ao GND.
+    - Terminal 2 (Pino Central): Conectado ao pino V0 do LCD.
+    - Terminal 3: Conectado ao 5V.
 ---
 
 ## Programação

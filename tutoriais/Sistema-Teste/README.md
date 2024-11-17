@@ -17,8 +17,10 @@
     - [Passo 2: Configuração das Placas](#passo-2-configuração-das-placas)
   - [Montagem do Circuito](#montagem-do-circuito)
   - [Programação](#programação)
-    - [Passo 1: Configuração dos Sensores e Atuadores](#passo-1-configuração-dos-sensores-e-atuadores)
-    - [Passo 2: Processamento e Lógica de Alerta](#passo-2-processamento-e-lógica-de-alerta)
+    - [Passo 1: Configuração do Sensor de Batimentos Cardíacos e do Buzzer](#passo-1-configuração-do-sensor-de-batimentos-cardíacos-e-do-buzzer)
+    - [Passo 2: Leitura dos Batimentos Cardíacos e Lógica de Alerta](#passo-2-leitura-dos-batimentos-cardíacos-e-lógica-de-alerta)
+    - [Explicação do Fluxo do Código](#explicação-do-fluxo-do-código)
+    - [Código completo](#código-completo)
   - [Teste e Validação](#teste-e-validação)
   - [Expansões e Melhorias](#expansões-e-melhorias)
   - [Referências](#referências)
@@ -98,47 +100,101 @@ Abaixo a imagem com o circuito totalmente montado:
 
 ## Programação
 
-### Passo 1: Configuração dos Sensores e Atuadores
-
-Forneça o código para a configuração dos sensores. Por exemplo, para medir temperatura e batimentos cardíacos:
-
-**Exemplo em C para ESP32:**
+### Passo 1: Configuração do Sensor de Batimentos Cardíacos e do Buzzer
+- Primeiro, configuramos o pino do sensor de batimentos cardíacos e o pino do buzzer como entradas e saídas, respectivamente:
 
 ```cpp
-#include <DHT.h>
-
-#define DHTPIN 2     // Pino do sensor DHT
-#define DHTTYPE DHT11 
-
-DHT dht(DHTPIN, DHTTYPE);
+// Definição dos pinos
+const int PulseSensorPin = A0; // Pino analógico do sensor de batimentos cardíacos
+const int BuzzerPin = 9;       // Pino digital do buzzer
 
 void setup() {
-  Serial.begin(9600);
-  dht.begin();
+  // Configuração do pino do buzzer como saída
+  pinMode(BuzzerPin, OUTPUT);
+  
+  // Configuração do pino do sensor como entrada
+  pinMode(PulseSensorPin, INPUT);
+}
+```
+### Passo 2: Leitura dos Batimentos Cardíacos e Lógica de Alerta
+- Agora, lemos os batimentos cardíacos do sensor e verificamos se o valor está dentro da faixa normal. Se não estiver, acionamos o buzzer como alerta.
+
+```cpp
+// Limites críticos dos batimentos cardíacos (BPM)
+const int CriticalLow = 40;    // Limite inferior crítico (BPM)
+const int CriticalHigh = 120;  // Limite superior crítico (BPM)
+
+void loop() {
+  int bpm = analogRead(PulseSensorPin);  // Lê os valores do sensor (batimentos cardíacos)
+  
+  // Converte o valor analógico para BPM
+  bpm = map(bpm, 0, 1023, 40, 180); // A mapeação pode variar dependendo do sensor
+  
+  // Verifica se os batimentos estão fora da faixa normal
+  if (bpm < CriticalLow || bpm > CriticalHigh) {
+    digitalWrite(BuzzerPin, HIGH);   // Aciona o buzzer se os batimentos estiverem fora da faixa crítica
+  } else {
+    digitalWrite(BuzzerPin, LOW);    // Desativa o buzzer se os batimentos estiverem dentro da faixa normal
+  }
+
+  delay(500);  // Aguarda meio segundo antes de realizar uma nova leitura
+}
+```
+### Explicação do Fluxo do Código
+- Configuração dos Pinos:
+
+ - O pino A0 é configurado como entrada para receber os dados do sensor de batimentos cardíacos.
+ - O pino 9 é configurado como saída para controlar o buzzer, que emitirá o alerta sonoro.
+- Leitura e Mapeamento:
+
+ - O código lê os valores do sensor de batimentos cardíacos e converte esses valores de uma leitura analógica para batimentos por minuto (BPM) utilizando a função map().
+- Lógica de Alerta:
+
+- Se os batimentos por minuto (BPM) estiverem fora da faixa crítica (abaixo de 40 BPM ou acima de 120 BPM), o buzzer será acionado, alertando que a frequência cardíaca está fora dos parâmetros normais.
+- Caso os batimentos estejam dentro da faixa normal, o buzzer permanecerá desligado.
+### Código completo
+```cpp
+#include <PulseSensorPlayground.h>
+
+const int PulseSensorPin = A0; // Pino do sensor de batimentos cardíacos
+const int BuzzerPin = 9;       // Pino do buzzer
+const int CriticalLow = 40;    // Limite inferior crítico (BPM)
+const int CriticalHigh = 120;  // Limite superior crítico (BPM)
+
+// Objeto da biblioteca para o sensor
+PulseSensorPlayground pulseSensor;
+
+void setup() {
+  Serial.begin(9600);             // Inicia comunicação serial
+  pinMode(BuzzerPin, OUTPUT);     // Configura o buzzer como saída
+
+  // Configurações básicas do sensor
+  pulseSensor.analogInput(PulseSensorPin);
+
+  if (!pulseSensor.begin()) {     // Verifica se o sensor iniciou corretamente
+    Serial.println("Erro ao inicializar o sensor.");
+    while (true);                 // Para o código se houver erro
+  }
 }
 
 void loop() {
-  float temp = dht.readTemperature();
-  Serial.println(temp);
-  delay(2000);
+  int bpm = pulseSensor.getBeatsPerMinute(); // Lê os BPM
+
+  if (pulseSensor.sawStartOfBeat()) { // Detecta batimento
+    Serial.print("BPM: ");
+    Serial.println(bpm);
+  }
+
+  // Ativa o buzzer se os BPM forem críticos
+  if (bpm < CriticalLow || bpm > CriticalHigh) {
+    digitalWrite(BuzzerPin, HIGH);
+  } else {
+    digitalWrite(BuzzerPin, LOW);
+  }
+
+  delay(500); // Espera 500 ms
 }
 ```
-
-**Exemplo em Python para Raspberry Pi:**
-
-```python
-import Adafruit_DHT
-
-sensor = Adafruit_DHT.DHT11
-pin = 4  # Pino GPIO
-
-humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-print(f"Temperatura: {temperature}ºC")
-```
-
-### Passo 2: Processamento e Lógica de Alerta
-
-Adicione a lógica para processar os dados e acionar atuadores, como LEDs ou buzzer, caso as leituras excedam um determinado limite.
 
 ---
 

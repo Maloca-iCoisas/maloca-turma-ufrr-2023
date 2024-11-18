@@ -68,6 +68,7 @@ Baixe e instale a [IDE Arduino](https://www.arduino.cc/en/software). Após a ins
 
 #### Diagrama do Circuito
 O esquema simplificado do circuito pode ser visto pelo [link](https://wokwi.com/projects/414928337584488449)
+![Captura de tela 2024-11-18 173711](https://github.com/user-attachments/assets/aa9c0d8c-1359-498e-8575-3717f78e2775)
 
 ---
 

@@ -1,6 +1,6 @@
 # Sensor de Postura para Pacientes Acamados
 
-**Descrição:** Neste tutorial, vamos desenvolver um sistema de monitoramento de postura para pacientes acamados utilizando um Arduino e sensores de pressão. O objetivo é identificar pressões prolongadas em áreas críticas, ajudando a prevenir úlceras por pressão e desconforto. Este projeto é ideal para estudantes e profissionais da área de tecnologia e saúde interessados em criar soluções inovadoras para o bem-estar de pacientes. 
+**Descrição:** Neste tutorial, vamos desenvolver um sistema de monitoramento de postura para pacientes acamados utilizando um Arduino e sensores de pressão. O objetivo é identificar pressões prolongadas em áreas críticas, ajudando a prevenir úlceras por pressão e desconforto. 
 
 ---
 

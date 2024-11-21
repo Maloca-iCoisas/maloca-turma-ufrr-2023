@@ -197,7 +197,7 @@ O sistema possui a capacidade de identificar três condições principais de umi
    - 
 # Teste e Validação
 
-Após programar o código, é hora de testar o sistema para garantir que tudo está funcionando corretamente.
+O Sistema foi testado no Tinkercad. [link do projeto](https://www.tinkercad.com/things/5gwLKy3VRug-sistema-de-monitoramento-de-hidratacao-para-pacientes-acamados?sharecode=xvpD-PL7HBa0D2r0O8PBFpPebKTWY2mbfkv2cGjYR8k).
 
 ## Testando Sensores
 
@@ -222,8 +222,6 @@ Para expandir o projeto, você pode considerar as seguintes melhorias:
 - **Integração com o Sistema de Nuvem**: Enviar os dados de nível de líquido para uma plataforma na nuvem para monitoramento remoto.
 - **Alertas por SMS ou Email**: Implementar um sistema de notificação via SMS ou email quando o nível de líquido atingir níveis críticos. Ideia: um infermeiro pode ter um smartwatch que notifica ele por mensagem quando a água de determinado paciente estiver para acabar.
 - **Interface Gráfica**: Criar uma interface gráfica para visualizar os dados de nível de líquido em tempo real.
-
-## Referências
 
 ## Referências
 

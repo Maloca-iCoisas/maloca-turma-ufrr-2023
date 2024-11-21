@@ -36,7 +36,7 @@ Este projeto tem como objetivo a construção de um sistema de monitoramento de 
 - **Outros componentes**:
   - Potenciômetro (para controle do volume do buzzer)
   - Jumpers
-  - Resistores (para limitar a corrente dos LEDs)
+  - Resistor 220 ohms (para limitar a corrente dos LEDs)
   - Fonte de alimentação (se necessário)
   - Placa de prototipagem (breadboard)
 
@@ -92,4 +92,81 @@ D11   -> LED médio
 D12   -> LED baixo
 D8    -> Potenciômetro (controle de volume)
 ```
-Imagem: ![Descrição da Imagem](circuito-tutorial-01.jpg)
+ ![Descrição da Imagem](circuito-tutorial-01.jpg)
+
+## Programação
+
+Aqui está o código para programar o Arduino para ler o nível de líquido e acionar os LEDs e buzzer conforme o nível:
+
+```cpp
+// Definindo pinos do sensor e dos alertas
+#define NIVEL_PIN A1      // Sensor de nível de líquido
+#define LED_ALTO 10       // LED para nível alto
+#define LED_MEDIO 11      // LED para nível médio
+#define LED_BAIXO 12      // LED para nível baixo
+#define BUZZER_PIN 8      // Buzzer para alerta sonoro
+#define POWER_PIN A0      // Pino de energia do sensor
+
+int nivelLiquido = 0;
+bool buzzerLigado = false;  // Variável para controlar o estado do buzzer
+
+void setup() {
+  // Configurações de pinos
+  pinMode(POWER_PIN, OUTPUT);
+  pinMode(NIVEL_PIN, INPUT);
+  pinMode(LED_ALTO, OUTPUT);
+  pinMode(LED_MEDIO, OUTPUT);
+  pinMode(LED_BAIXO, OUTPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+
+  // Iniciar a comunicação Serial para monitoramento
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Alimenta o sensor de nível de líquido
+  digitalWrite(POWER_PIN, HIGH);
+  delay(10);  // Aguardar para estabilização
+
+  // Lê o nível de líquido
+  nivelLiquido = analogRead(NIVEL_PIN);
+
+  // Desliga a alimentação do sensor
+  digitalWrite(POWER_PIN, LOW);
+
+  // Exibe o nível de líquido no monitor Serial
+  Serial.print("Nível de Líquido: ");
+  Serial.println(nivelLiquido);
+
+  // Desliga todos os LEDs e buzzer antes de decidir qual acender
+  digitalWrite(LED_ALTO, LOW);
+  digitalWrite(LED_MEDIO, LOW);
+  digitalWrite(LED_BAIXO, LOW);
+  digitalWrite(BUZZER_PIN, LOW);
+
+  // Avaliação do nível de líquido e acionamento de LEDs e buzzer
+  if (nivelLiquido < 200) {
+    // Nível muito baixo - alerta sonoro intermitente e visual
+    digitalWrite(LED_BAIXO, HIGH);
+
+    // Alarme intermitente
+    if (buzzerLigado) {
+      digitalWrite(BUZZER_PIN, HIGH);  // Liga o buzzer
+      delay(100);                      // Espera 100ms com som
+    } else {
+      digitalWrite(BUZZER_PIN, LOW);   // Desliga o buzzer
+      delay(800);                      // Espera 800ms sem som
+    }
+    
+    buzzerLigado = !buzzerLigado;  // Alterna o estado do buzzer
+  } else if (nivelLiquido < 500) {
+    // Nível médio - apenas LED médio aceso
+    digitalWrite(LED_MEDIO, HIGH);
+  } else {
+    // Nível alto - LED alto aceso
+    digitalWrite(LED_ALTO, HIGH);
+  }
+
+  // Aguarda meio segundo antes da próxima leitura
+  delay(500);
+}

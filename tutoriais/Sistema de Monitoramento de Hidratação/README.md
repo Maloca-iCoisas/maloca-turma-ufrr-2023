@@ -91,3 +91,5 @@ D10   -> LED alto
 D11   -> LED médio
 D12   -> LED baixo
 D8    -> Potenciômetro (controle de volume)
+```
+Imagem: ![Descrição da Imagem](circuito-tutorial-01.jpg)

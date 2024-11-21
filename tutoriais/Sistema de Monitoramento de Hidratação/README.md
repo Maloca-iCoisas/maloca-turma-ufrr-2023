@@ -182,14 +182,14 @@ No segundo passo, o código processa as leituras do sensor de nível de líquido
 O sistema possui a capacidade de identificar três condições principais de umidade:
 
 1. **Nível Muito Baixo** (nível de líquido abaixo de 200):
-   - Se o nível de umidade estiver **muito baixo**, o sistema aciona o **LED baixo** para indicar visualmente o problema.
+   - Se o nível de umidade estiver **muito baixo**, o sistema aciona o **LED baixo** (cor vermelha) para indicar visualmente o problema.
    - Além disso, um **alarme sonoro** intermitente é emitido pelo buzzer para alertar o usuário de que o nível de umidade está crítico.
    - O buzzer alterna entre ligado e desligado, criando um alerta intermitente até que a condição de nível baixo seja resolvida.
 
 2. **Nível Médio** (nível de líquido entre 200 e 500):
-   - Se o nível de líquido estiver dentro de uma faixa média, o **LED médio** é acionado para indicar que o nível de umidade está aceitável, mas que é necessário monitoramento.
+   - Se o nível de líquido estiver dentro de uma faixa média, o **LED médio** (cor amarela)é acionado para indicar que o nível de umidade está aceitável, mas que é necessário monitoramento.
    - Não há alerta sonoro nesse caso, apenas a indicação visual do LED.
 
 3. **Nível Alto** (nível de líquido acima de 500):
-   - Quando o nível de líquido está alto, o **LED alto** é acionado para mostrar que o nível de umidade está adequado e não requer intervenção.
+   - Quando o nível de líquido está alto, o **LED alto** (cor verde) é acionado para mostrar que o nível de umidade está adequado e não requer intervenção.
    - Nenhum alerta sonoro ou visual adicional é necessário, pois o sistema considera que o ambiente está em um estado ideal.

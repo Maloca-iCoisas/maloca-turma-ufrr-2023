@@ -1,4 +1,4 @@
-# Projeto de Monitoramento de Nível de Líquido - Maloca das iCoisas
+# Projeto de Monitoramento de Hidratação para Pacientes Acamados - Maloca das iCoisas
 
 ## Descrição
 Neste tutorial, vamos desenvolver um sistema de monitoramento de nível de líquido utilizando um sensor de umidade, com acionamento de LEDs e buzzer, usando uma placa **Arduino**. O objetivo é criar um sistema que detecte o nível de líquido e forneça alertas visuais e sonoros em tempo real. Este projeto é ideal para iniciantes e tem foco em automação de ambientes e sistemas de monitoramento.

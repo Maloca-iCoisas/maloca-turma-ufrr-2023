@@ -187,9 +187,53 @@ O sistema possui a capacidade de identificar três condições principais de umi
    - O buzzer alterna entre ligado e desligado, criando um alerta intermitente até que a condição de nível baixo seja resolvida.
 
 2. **Nível Médio** (nível de líquido entre 200 e 500):
-   - Se o nível de líquido estiver dentro de uma faixa média, o **LED médio** (cor amarela)é acionado para indicar que o nível de umidade está aceitável, mas que é necessário monitoramento.
+   - Se o nível de líquido estiver dentro de uma faixa média, o **LED médio** (cor amarela) é acionado para indicar que o nível de umidade está aceitável, mas que é necessário monitoramento.
    - Não há alerta sonoro nesse caso, apenas a indicação visual do LED.
 
 3. **Nível Alto** (nível de líquido acima de 500):
    - Quando o nível de líquido está alto, o **LED alto** (cor verde) é acionado para mostrar que o nível de umidade está adequado e não requer intervenção.
    - Nenhum alerta sonoro ou visual adicional é necessário, pois o sistema considera que o ambiente está em um estado ideal.
+   - 
+# Teste e Validação
+
+Após programar o código, é hora de testar o sistema para garantir que tudo está funcionando corretamente.
+
+## Testando Sensores
+
+### Sensor de Nível de Líquido
+Certifique-se de que o sensor de nível está fornecendo leituras coerentes conforme a quantidade de líquido no recipiente.
+
+## Validação dos Atuadores
+
+### LEDs
+Verifique se os LEDs acendem de acordo com os níveis de líquido (baixo, médio, alto).
+
+### Buzzer
+Teste o alarme sonoro para garantir que ele emite um alerta sonoro intermitente quando o nível de líquido estiver baixo e um som contínuo para níveis mais altos.
+
+## Monitoramento em Tempo Real
+Observe as leituras no monitor serial para garantir que os dados do sensor estejam sendo transmitidos corretamente.  
+Valide a resposta dos atuadores em tempo real, ajustando o potenciômetro para controlar o volume do alarme.
+
+## Expansões e Melhorias
+Para expandir o projeto, você pode considerar as seguintes melhorias:
+
+- **Integração com o Sistema de Nuvem**: Enviar os dados de nível de líquido para uma plataforma na nuvem para monitoramento remoto.
+- **Alertas por SMS ou Email**: Implementar um sistema de notificação via SMS ou email quando o nível de líquido atingir níveis críticos. Ideia: um infermeiro pode ter um smartwatch que notifica ele por mensagem quando a água de determinado paciente estiver para acabar.
+- **Interface Gráfica**: Criar uma interface gráfica para visualizar os dados de nível de líquido em tempo real.
+
+## Referências
+
+## Referências
+
+- [Sensor de Nível de Líquido](https://www.electronicwings.com/arduino/sensor-water-level-sensor)  
+  - Um tutorial explicativo sobre como utilizar o sensor de nível de líquido com Arduino.
+  
+- [Arduino IDE: Como instalar e usar](https://www.arduino.cc/en/software)  
+  - Página oficial do Arduino IDE com instruções de instalação e uso.
+
+- [Como Usar o Sensor de Umidade do Solo no Arduino?](https://www.youtube.com/watch?v=QPH9aXS2bio). 
+  - Vídeo tutorial que mostra como conectar e programar o sensor de nível de líquido com Arduino.
+
+- [Potenciômetro controlando buzzer no tinkercad](https://www.youtube.com/watch?v=Odc5de3eswQ)  
+  - Tutorial em vídeo sobre como usar um potenciômetro para ajustar o volume de um buzzer em um projeto com Arduino.

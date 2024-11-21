@@ -171,7 +171,7 @@ void loop() {
   delay(500);
 }
 ``` 
-## Passo 2: Processamento e Lógica de Alerta
+## Processamento e Lógica de Alerta
 
 ### Processamento dos Dados
 
@@ -211,7 +211,7 @@ Verifique se os LEDs acendem de acordo com os níveis de líquido (baixo, médio
 ### Buzzer
 Teste o alarme sonoro para garantir que ele emite um alerta sonoro intermitente quando o nível de líquido estiver baixo e um som contínuo para níveis mais altos.
 
-## Monitoramento em Tempo Real
+### Monitoramento em Tempo Real
 Observe as leituras no monitor serial para garantir que os dados do sensor estejam sendo transmitidos corretamente.  
 Valide a resposta dos atuadores em tempo real, ajustando o potenciômetro para controlar o volume do alarme.
 

@@ -27,12 +27,14 @@ Este projeto tem como objetivo a construção de um sistema de monitoramento de 
 
 ## Requisitos
 
+
 ### Hardware
 
 - **Placa**: Arduino Uno (ou similar)
 - **Sensor**: Sensor de umidade (moisture sensor)
-- **Atuadores**: LEDs (para diferentes níveis de líquido) e Buzzer (para alerta sonoro)
+- **Atuadores**: LEDs (para diferentes níveis de líquido), Buzzer (para alerta sonoro)
 - **Outros componentes**:
+  - Potenciômetro (para controle do volume do buzzer)
   - Jumpers
   - Resistores (para limitar a corrente dos LEDs)
   - Fonte de alimentação (se necessário)
@@ -75,14 +77,17 @@ A montagem do circuito é bem simples. Conecte o sensor de umidade aos pinos ana
 
 - **Buzzer**:  
   Conecte o buzzer ao pino digital 8 para emitir um som quando o nível de líquido estiver baixo.
+  
+- **Potenciômetro**:  
+  Conecte o potenciômetro ao pino analógico A0 do Arduino para controlar o volume do buzzer.
 
 ```plaintext
 Pinos Arduino -> Componentes
 A0    -> VCC do sensor de umidade
 GND   -> GND do sensor de umidade
 A1    -> Pino de leitura do sensor de umidade
-D8    -> Buzzer
+pino positivo no pino do meio do potenciomentro    -> Buzzer
 D10   -> LED alto
 D11   -> LED médio
 D12   -> LED baixo
-
+D8    -> Potenciômetro (controle de volume)

@@ -11,7 +11,6 @@ Neste tutorial, vamos desenvolver um sistema de monitoramento de nível de líqu
 3. [Configuração do Ambiente](#configuração-do-ambiente)
 4. [Montagem do Circuito](#montagem-do-circuito)
 5. [Programação](#programação)
-   - [Configuração dos Sensores e Atuadores](#configuração-dos-sensores-e-atuadores)
    - [Processamento e Lógica de Alerta](#processamento-e-lógica-de-alerta)
 6. [Teste e Validação](#teste-e-validação)
 7. [Expansões e Melhorias](#expansões-e-melhorias)
@@ -63,7 +62,7 @@ Este projeto tem como objetivo a construção de um sistema de monitoramento de 
 - **Arduino**:  
   No Arduino IDE, selecione a placa correta (Arduino Uno) em **Ferramentas > Placa > Arduino Uno** e configure a porta de comunicação correta.
 
-   ![Descrição da Imagem](Arduino-IDE.jpg)
+   ![Descrição da Imagem](Arduino_IDE.jpg)
 
 ---
 

@@ -199,12 +199,8 @@ O sistema possui a capacidade de identificar três condições principais de umi
 
 O Sistema foi testado no Tinkercad. [link do projeto](https://www.tinkercad.com/things/5gwLKy3VRug-sistema-de-monitoramento-de-hidratacao-para-pacientes-acamados?sharecode=xvpD-PL7HBa0D2r0O8PBFpPebKTWY2mbfkv2cGjYR8k).
 
-## Testando Sensores
-
 ### Sensor de Nível de Líquido
 Certifique-se de que o sensor de nível está fornecendo leituras coerentes conforme a quantidade de líquido no recipiente.
-
-## Validação dos Atuadores
 
 ### LEDs
 Verifique se os LEDs acendem de acordo com os níveis de líquido (baixo, médio, alto).

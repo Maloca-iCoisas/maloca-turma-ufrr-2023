@@ -224,9 +224,6 @@ Para expandir o projeto, você pode considerar as seguintes melhorias:
 - **Interface Gráfica**: Criar uma interface gráfica para visualizar os dados de nível de líquido em tempo real.
 
 ## Referências
-
-- [Sensor de Nível de Líquido](https://www.electronicwings.com/arduino/sensor-water-level-sensor)  
-  - Um tutorial explicativo sobre como utilizar o sensor de nível de líquido com Arduino.
   
 - [Arduino IDE: Como instalar e usar](https://www.arduino.cc/en/software)  
   - Página oficial do Arduino IDE com instruções de instalação e uso.

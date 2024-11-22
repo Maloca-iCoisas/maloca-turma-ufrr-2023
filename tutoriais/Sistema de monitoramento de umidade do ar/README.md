@@ -36,11 +36,11 @@
 
 ## Hardware 
  - Arduíno uno (para mandar os comandos de print da tela e interpretar os sinais analógicos dos sensores)
-- Sensor DHT-22 (Utilizado para checar a umidade relativa do ambiente)
+-  Sensor DHT-22 (Utilizado para checar a umidade relativa do ambiente)
 -  Protoboard (utilizado para faciltar as conexões entre os componentes)
 -  Tela LCD 16X2 (utilizado para mandar um aviso caso haja alteração na umidade do ar )
-- Fios e cabos (para fazer as conexões entre os componentes)
-- Potenciômetro(Para regular a tela LCD)
+-  Fios e cabos (para fazer as conexões entre os componentes)
+-  Potenciômetro(Para regular a tela LCD)
  
 ## Software
 - C/C++ Proprio para arduíno 
@@ -51,8 +51,13 @@
 ### 1° Passo 
 - Fazer o download da IDE do arduíno 
 ### 2° Passo 
-- Após a conexão feita do computador com a porta USB do arduíno faça o upload do código 
-
+- Após a entrada no ambiente faça o download das bibliotecas: DHT sensor library by Adafuit  do sensor DHT-22 e da biblioteca Liquid Crystal  by Ada fruit que é responsável pela documentação da tela LCD
+### 3° Passo  
+- Digite o código que será utilizado
+### 4° Passo 
+- Verifique o código
+### 5° Passo 
+- Selecione a placa arduíno UNO e a porta correta e faça o upload do código para o arduíno
 ## Montagem do circuito
 ### 1° Passo 
 - Separar os componentes necessários para a montagem do circuito nesse caso a tela LCD , o sensor DHT , o arduíno , a protoboard e um potenciômetro

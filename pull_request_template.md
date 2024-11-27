@@ -1,36 +1,40 @@
-# Pull Request - Projeto Maloca das iCoisas
+![image](https://github.com/user-attachments/assets/9eb246f3-1a40-4d23-8a0d-32f9dc7aaefb)# Pull Request - Projeto Maloca das iCoisas
 
 ## Descrição do Pull Request
 
 ### O que foi implementado:
-<!-- Descreva brevemente as alterações propostas neste Pull Request, incluindo quais funcionalidades, correções ou melhorias foram introduzidas. -->
 
-- 
+Implementação de um sistema de localização de equipamentos médicos usando IoT.
+Configuração de dispositivos RFID e gateways IoT (Raspberry Pi) para rastrear cadeiras de rodas e desfibriladores.
+Desenvolvimento de uma interface de mapa interativo com Leaflet.js, mostrando as localizações em tempo real.
+
 
 ### Contexto e Motivação:
-<!-- Explique o problema ou a necessidade que levou a esta implementação, especialmente considerando o contexto de IoT na área da saúde. -->
 
-- 
+Equipamentos médicos essenciais, como desfibriladores, muitas vezes não estão prontamente disponíveis em emergências. 
+Este sistema oferece rastreamento preciso e uma interface visual para melhorar a gestão interna, reduzindo atrasos no atendimento.
+
 
 ## Testes Realizados
 
 ### Descrição dos Testes:
-<!-- Descreva os testes realizados, especialmente aqueles envolvendo sensores e atuadores, e as configurações utilizadas para verificar a funcionalidade. -->
+Teste de comunicação entre o leitor RFID e o Raspberry Pi usando uma etiqueta simulada.
+Simulação de rastreamento no Tinkercad, verificando a leitura de UID de etiquetas RFID.
+Testes na interface de mapa para verificar a atualização em tempo real das localizações.
 
-- 
 
 ### Resultados dos Testes:
-<!-- Indique os resultados observados ao realizar os testes em placas como Arduino, Raspberry Pi e ESP32. -->
+Leituras de etiquetas RFID foram reconhecidas corretamente pelo Raspberry Pi.
+A interface de mapa exibiu atualizações precisas de localização conforme dados enviados pelos gateways.
 
-- 
 
 ## Checklist
 
 - [ ] Código atende às normas do projeto e foi formatado de acordo com as diretrizes.
-- [ ] Código foi testado e validado em ambiente de desenvolvimento com hardware real (Arduino, Raspberry Pi, ESP32) ou simulação (tinkercad).
+- [ ] Código foi testado e validado em ambiente de desenvolvimento com hardware real (Raspberry Pi) e simulação (Tinkercad).
 - [ ] Documentação atualizada para refletir as mudanças realizadas.
-- [ ] Código escrito e comentado em **C** ou **Python** de acordo com os padrões do projeto.
-- [ ] Testes com sensores e atuadores específicos incluídos e detalhados na descrição dos testes.
+- [ ] Código escrito e comentado em Python de acordo com os padrões do projeto.
+- [ ] Testes com sensores RFID incluídos e detalhados na descrição dos testes.
 
 ## Tipo de Mudança
 
@@ -42,25 +46,20 @@
 ## Informações Adicionais
 
 ### Hardware Utilizado:
-<!-- Liste o hardware específico (ex: Arduino Uno, ESP32) e os sensores ou atuadores associados a este PR. -->
+1. Arduino Uno.
+2. Jumples.
+3. Leitor RFID RC522 para rastreamento.
+4. Etiquetas RFID fixadas nos equipamentos médicos.
 
-- 
 
 ### Simulação Utilizado:
-<!-- Liste os componentes específico (ex: Arduino Uno, ESP32) e os sensores ou atuadores associados a este PR, bem como, o link da simulação. -->
+Tinkercad para simulação básica de leitura RFID. Porém, ocorre que o simulador não possui o Leitor RFID para que o teste seja realizado, porem com base no que foi ensinado aos alunos durante as aulas, foi possivel realizar a montagem e teste aplicado no prototipo.
 
--
 
 ### Observações:
-<!-- Detalhes adicionais ou considerações que possam ajudar na revisão do código. -->
 
-- 
-
-## Issue Relacionada
-
-<!-- Se aplicável, mencione a issue relacionada a este PR (ex: `Closes #123`) -->
 Closes #
 
 ---
 
-**Nota:** Certifique-se de que o código e as descrições estejam claros e detalhados o suficiente para uma revisão eficaz.
+

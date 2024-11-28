@@ -53,7 +53,8 @@ O projeto envolve a comunicação entre o microcontrolador ESP32, um display OLE
 # Instalar bibliotecas do Python
 pip install ssd1306
 ```
-     Passo 2: Configuração das Placas
+
+### Passo 2: Configuração das Placas
 
 - **ESP32**:ESP32: Conecte o ESP32 ao computador via USB e configure-o na IDE Thonny. 
 
@@ -71,8 +72,8 @@ Display OLED SSD1306 (I2C):
 
 Pino SDA: GPIO 21
 Pino SCL: GPIO 22
-![Texto alternativo](diagramaWokwi.png "Diagrama no Wokwi")
 Link da simulação: [Simulação no Wokwi](https://wokwi.com/projects/415801854772167681)
+![Texto alternativo](diagramaWokwi.png "Diagrama no Wokwi")
 ---
 
 ## Programação

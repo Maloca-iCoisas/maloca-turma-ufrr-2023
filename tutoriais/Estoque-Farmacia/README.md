@@ -73,7 +73,7 @@ Display OLED SSD1306 (I2C):
 Pino SDA: GPIO 21
 Pino SCL: GPIO 22
 
-Link da simulação: [Simulação no Wokwi](https://wokwi.com/projects/415801854772167681)
+Link da simulação: [Simulação no Wokwi](https://wokwi.com/projects/415806447024476161)
 
 ![Texto alternativo](diagramaWokwi.png "Diagrama no Wokwi")
 ---

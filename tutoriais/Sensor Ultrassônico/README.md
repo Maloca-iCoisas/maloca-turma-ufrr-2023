@@ -1,4 +1,4 @@
-# Título do Tutorial
+# Medição de Altura em Exames Pediátricos com Raspberry Pi Pico
 
 **Descrição:** Este tutorial ensina a criar um sistema de medição de altura para exames pediátricos usando o sensor ultrassônico HC-SR04 e o display LCD com interface I2C no Raspberry Pi Pico. O projeto é voltado para aplicações em saúde, como triagens médicas, em que a medição precisa e rápida da altura de crianças é essencial.
 

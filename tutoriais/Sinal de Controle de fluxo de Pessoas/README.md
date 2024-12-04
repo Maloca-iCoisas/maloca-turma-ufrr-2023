@@ -77,7 +77,7 @@ Para montar o circuito, siga as instruções abaixo:
 - LED Verde: Conecte o terminal do resistor do LED verde ao pino digital 2 do Arduino.
 - LED Vermelho: Conecte o terminal do resistor do LED vermelho ao pino digital 4 do Arduino.
 
-3. Conexão da Linha Positiva da Protoboard:
+5. Conexão da Linha Positiva da Protoboard:
 
 - Conecte a linha positiva (linha vermelha) da protoboard ao pino 5V do Arduino para fornecer alimentação estável aos componentes do circuito.
 

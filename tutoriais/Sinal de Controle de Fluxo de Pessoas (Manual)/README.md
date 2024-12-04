@@ -46,7 +46,13 @@ Controlar o fluxo de pessoas é essencial em áreas críticas de hospitais. Este
 
 ### Passo 2: Configuração da Placa
 
-- **Arduino**: Conecte a placa ao computador via USB e selecione a porta correta na IDE do Arduino.
+1. No Software Arduino Conecte a placa ao computador via USB;
+2. Clique em Select other board and port como mostra na imagem abaixo:
+   
+  <img src="tela_arduino.png" alt="tela do arduino" />
+  
+3. Selecione a board Arduino Mega or Mega 2560;
+4. Por fim selecione a porta correta na IDE do Arduino.
 
 ---
 

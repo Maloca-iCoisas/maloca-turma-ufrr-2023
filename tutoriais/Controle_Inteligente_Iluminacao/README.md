@@ -1,7 +1,7 @@
 
 # **Tutorial: Controle Inteligente de Iluminação com IoT**
 
-Este tutorial mostra como criar um sistema IoT para controle inteligente de iluminação em ambientes médicos, como salas de espera ou consultórios. Ele ajustará a iluminação automaticamente com base na presença de pessoas e nas condições de luz ambiente, otimizando o conforto e a eficiência energética.
+Este tutorial mostra como criar um sistema IoT para controle inteligente de iluminação em ambientes médicos, como salas de espera ou consultórios. Ele ajustará a iluminação automaticamente com base na presença de pessoas e nas condições de luz ambiente(utilizando sensores PIR HC-SR501 e Sensores de Luz LDR), otimizando o conforto e a eficiência energética.
 
 ---
 

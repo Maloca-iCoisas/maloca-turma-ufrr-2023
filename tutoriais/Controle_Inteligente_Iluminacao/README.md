@@ -91,6 +91,9 @@ const int ledPin = 3;       // Pino do LED
 const int ldrPin = A0;      // Pino do sensor LDR
 const int lightThreshold = 500; // Limiar de luz para ativar o LED (ajustável)
 
+unsigned long lastMotionTime = 0; // Armazena o tempo da última detecção de movimento
+const unsigned long lightDuration = 10000; // Duração em milissegundos (10 segundos)
+
 void setup() {
   pinMode(pirPin, INPUT);
   pinMode(ledPin, OUTPUT);
@@ -107,15 +110,21 @@ void loop() {
   Serial.print(" | Presenca: ");
   Serial.println(pirState);
 
-  if (pirState == HIGH && ldrValue < lightThreshold) {
-    digitalWrite(ledPin, LOW);
+  // Atualiza o tempo da última detecção se houver movimento
+  if (pirState == HIGH) {
+    lastMotionTime = millis();
+  }
+
+  // Verifica se deve ligar ou desligar a luz
+  if (millis() - lastMotionTime < lightDuration && ldrValue < lightThreshold) {
+    digitalWrite(ledPin, LOW); // Liga o LED
     Serial.println("Luz Ligada!");
   } else {
-    digitalWrite(ledPin, HIGH); 
+    digitalWrite(ledPin, HIGH); // Desliga o LED
     Serial.println("Luz Desligada!");
   }
 
-  delay(2000); // Atualiza a cada segundo
+  delay(500); // Atualiza a cada meio segundo
 }
 
 ```
@@ -159,6 +168,9 @@ Isto pode ser feito através do simulador virtual TinkerCAD: [Link do projeto.](
 
 4. **Detecção Multiambiente**  
    - Adicione múltiplos sensores PIR e LEDs para controlar diferentes áreas do ambiente de forma independente.  
+
+5. **Aprimoramento do tempo de resposta e acionamento das luzes**
+   - Verificar possíveis componentes de substituição para agilizar o acendimento das luzes, além de modificar o código para manter as luzes acesas por mais tempo.
 
 ---
 

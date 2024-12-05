@@ -20,6 +20,7 @@ Este tutorial mostra como criar um sistema IoT para controle inteligente de ilum
   - [**Funcionamento**](#funcionamento)
   - [**Testando o Sistema**](#testando-o-sistema)
   - [**Possíveis Melhorias**](#possíveis-melhorias)
+  - [**Conclusões**](#conclusões)
 
 ---
 
@@ -174,4 +175,10 @@ Isto pode ser feito através do simulador virtual TinkerCAD: [Link do projeto.](
 
 ---
 
-Este tutorial é uma base para desenvolver soluções mais avançadas. Teste, personalize e leve o projeto ao próximo nível! 🚀
+## **Conclusões**
+
+Este projeto demonstra de forma eficaz como integrar sensores de presença e de luz para criar um sistema inteligente de controle de iluminação, promovendo conforto e eficiência energética em ambientes médicos. A solução apresentada não só ajusta automaticamente a iluminação conforme a ocupação e as condições de luz ambiente, mas também otimiza o consumo de energia ao desligar as luzes após um período de inatividade.
+
+Os testes realizados no simulador TinkerCAD, confirmam a funcionalidade do sistema e sua aplicabilidade prática. Além disso, a modularidade do projeto possibilita adaptações e melhorias futuras, como a integração com redes Wi-Fi para controle remoto, monitoramento de dados em tempo real e ajuste dinâmico da intensidade luminosa.
+
+O sistema atende ao objetivo inicial de fornecer uma solução acessível e eficiente para ambientes hospitalares e similares. Com base nas sugestões de melhorias, há potencial para expandir o projeto, incorporando tecnologias de IoT mais avançadas e aumentando sua escalabilidade e personalização. Esse tutorial serve como um ponto de partida sólido para desenvolvedores e entusiastas interessados em criar sistemas de automação inteligentes e sustentáveis.

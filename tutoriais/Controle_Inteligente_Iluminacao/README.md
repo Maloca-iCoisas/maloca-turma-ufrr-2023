@@ -7,27 +7,32 @@ Este tutorial mostra como criar um sistema IoT para controle inteligente de ilum
 
 ## **Sumário**
 
-1. [Objetivo do Projeto](#objetivo-do-projeto)  
-2. [Componentes Necessários](#componentes-necessários)  
-3. [Esquema de Conexão](#esquema-de-conexão)  
-    - [1. Conexão do Sensor PIR](#1-conexão-do-sensor-pir)  
-    - [2. Conexão do Sensor de Luz](#2-conexão-do-sensor-de-luz-ldr)  
-    - [3. Conexão da Lâmpada LED](#3-conexão-da-lâmpada-led)  
-4. [Código do Projeto](#código-do-projeto)  
-5. [Funcionamento](#funcionamento)  
-6. [Testando o Sistema](#testando-o-sistema)  
-7. [Possíveis Melhorias](#possíveis-melhorias)
+- [**Tutorial: Controle Inteligente de Iluminação com IoT**](#tutorial-controle-inteligente-de-iluminação-com-iot)
+  - [**Sumário**](#sumário)
+  - [**Objetivo do Projeto**](#objetivo-do-projeto)
+  - [**Componentes Necessários**](#componentes-necessários)
+  - [**Esquema de Conexão**](#esquema-de-conexão)
+    - [**1. Conexão do Sensor PIR**](#1-conexão-do-sensor-pir)
+    - [**2. Conexão do Sensor de Luz (LDR)**](#2-conexão-do-sensor-de-luz-ldr)
+    - [**3. Conexão da Lâmpada LED**](#3-conexão-da-lâmpada-led)
+  - [**Exemplo de esquema feito no ThinkerCad**](#exemplo-de-esquema-feito-no-thinkercad)
+  - [**Código do Projeto**](#código-do-projeto)
+  - [**Funcionamento**](#funcionamento)
+  - [**Testando o Sistema**](#testando-o-sistema)
+  - [**Possíveis Melhorias**](#possíveis-melhorias)
 
 ---
 
 ## **Objetivo do Projeto**
 
 Desenvolver um sistema IoT para controle de iluminação que:  
+
 - Detecta automaticamente a presença de pessoas no ambiente.  
 - Mede a intensidade da luz ambiente.  
 - Liga e desliga uma lâmpada LED com base nas condições detectadas.  
 
 Esse sistema é útil em hospitais e clínicas para:  
+
 - Garantir conforto visual durante exames e consultas.  
 - Reduzir o consumo de energia elétrica em ambientes com pouca ocupação.  
 
@@ -47,27 +52,33 @@ Esse sistema é útil em hospitais e clínicas para:
    - Jumpers
 
 2. **Software**
+
    - IDE Arduino
+
 ---
 
 ## **Esquema de Conexão**
 
 ### **1. Conexão do Sensor PIR**
+
 - **VCC** → 5V  
 - **GND** → GND  
 - **OUT** → Pino digital (ex: D2 no Arduino)  
 
 ### **2. Conexão do Sensor de Luz (LDR)**  
+
 - **LDR**:  
   - Conecte em série com um resistor de 10k ohms entre o pino analógico A0 e o GND.  
 
 ### **3. Conexão da Lâmpada LED**
+
 - O cátodo do LED (perna menor) vai ao GND.
 - O ânodo do LED (perna maior) conecta-se ao pino D3 por meio de um resistor de 220 ohms.
 
 ---
 
 ## **Exemplo de esquema feito no ThinkerCad**
+
 ![Esquema de circuitos](./diagrama-thinkerCAD.jpeg)
 
 ---
@@ -125,6 +136,8 @@ void loop() {
 
 ## **Testando o Sistema**
 
+Isto pode ser feito através do simulador virtual TinkerCAD: [Link do projeto.](https://www.tinkercad.com/things/7C9WrRfNNbg-controle-inteligente-de-iluminacao-de-salas-corredores-e-patios)
+
 1. Configure o hardware conforme o esquema.  
 2. Carregue o código no Arduino usando a IDE Arduino.  
 3. Verifique o funcionamento:  
@@ -150,6 +163,3 @@ void loop() {
 ---
 
 Este tutorial é uma base para desenvolver soluções mais avançadas. Teste, personalize e leve o projeto ao próximo nível! 🚀
-
-
-

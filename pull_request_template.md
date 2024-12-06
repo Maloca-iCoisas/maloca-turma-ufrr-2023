@@ -3,54 +3,64 @@
 ## Descrição do Pull Request
 
 ### O que foi implementado:
-- Implementação de um tutorial para o sensor ultrassônico HC-SR04 com Arduino, incluindo código, diagrama de conexão e instruções detalhadas.
+<!-- Descreva brevemente as alterações propostas neste Pull Request, incluindo quais funcionalidades, correções ou melhorias foram introduzidas. -->
+
+- 
 
 ### Contexto e Motivação:
--  Este tutorial busca facilitar o uso do sensor HC-SR04 para medir distâncias em projetos IoT, servindo como base para aplicações em monitoramento de proximidade em contextos hospitalares.
+<!-- Explique o problema ou a necessidade que levou a esta implementação, especialmente considerando o contexto de IoT na área da saúde. -->
+
+- 
 
 ## Testes Realizados
 
 ### Descrição dos Testes:
-- Hardware:
-Montagem do circuito com Arduino Uno, sensor HC-SR04 e jumpers.
-Verificação de alimentação e sinais de controle (pinos TRIG e ECHO).
-- Software:
-Código testado no Arduino IDE, verificando leituras no monitor serial.
-Simulação no WokWi para avaliar funcionamento sem hardware real.
+<!-- Descreva os testes realizados, especialmente aqueles envolvendo sensores e atuadores, e as configurações utilizadas para verificar a funcionalidade. -->
 
+- 
 
 ### Resultados dos Testes:
-- Distâncias foram medidas com precisão em ambientes reais e simulados.
-- Código executado sem erros ou falhas de compilação.
+<!-- Indique os resultados observados ao realizar os testes em placas como Arduino, Raspberry Pi e ESP32. -->
+
+- 
 
 ## Checklist
 
-- [x] Código atende às normas do projeto e foi formatado de acordo com as diretrizes.
-- [x] Código foi testado e validado em ambiente de desenvolvimento com hardware real (Arduino, Raspberry Pi, ESP32) ou simulação (workwi).
-- [x] Documentação atualizada para refletir as mudanças realizadas.
-- [x] Código escrito e comentado em **C** ou **Python** de acordo com os padrões do projeto.
-- [x] Testes com sensores e atuadores específicos incluídos e detalhados na descrição dos testes.
+- [ ] Código atende às normas do projeto e foi formatado de acordo com as diretrizes.
+- [ ] Código foi testado e validado em ambiente de desenvolvimento com hardware real (Arduino, Raspberry Pi, ESP32) ou simulação (tinkercad).
+- [ ] Documentação atualizada para refletir as mudanças realizadas.
+- [ ] Código escrito e comentado em **C** ou **Python** de acordo com os padrões do projeto.
+- [ ] Testes com sensores e atuadores específicos incluídos e detalhados na descrição dos testes.
 
 ## Tipo de Mudança
 
 - [ ] Correção de bug
-- [x] Nova funcionalidade
+- [ ] Nova funcionalidade
 - [ ] Alteração de funcionalidade existente
-- [x] Documentação
+- [ ] Documentação
 
 ## Informações Adicionais
 
 ### Hardware Utilizado:
-- Arduino Uno
-- Sensor Ultrassônico HC-SR04
-- Protoboard e jumpers
+<!-- Liste o hardware específico (ex: Arduino Uno, ESP32) e os sensores ou atuadores associados a este PR. -->
 
-### Simulação Utilizada:
-- https://wokwi.com/projects/407047625786887169
+- 
+
+### Simulação Utilizado:
+<!-- Liste os componentes específico (ex: Arduino Uno, ESP32) e os sensores ou atuadores associados a este PR, bem como, o link da simulação. -->
+
+-
 
 ### Observações:
-- Código testado com intervalos de 1 segundo entre medições.
-- Valores exibidos no monitor serial podem ser ajustados para exibir em unidades diferentes (cm, mm, etc.).
+<!-- Detalhes adicionais ou considerações que possam ajudar na revisão do código. -->
+
+- 
 
 ## Issue Relacionada
+
+<!-- Se aplicável, mencione a issue relacionada a este PR (ex: `Closes #123`) -->
 Closes #
+
+---
+
+**Nota:** Certifique-se de que o código e as descrições estejam claros e detalhados o suficiente para uma revisão eficaz.

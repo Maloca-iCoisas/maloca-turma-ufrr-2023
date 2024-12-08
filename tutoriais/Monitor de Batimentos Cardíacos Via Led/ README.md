@@ -34,7 +34,7 @@ O tutorial do monitor de batimentos cardíacos via LED tem como propósito educa
 
 ### Software
 
-- **Linguagens**: C/C++ para Arduino e ESP32
+- **Linguagens**: C/C++ para Arduino
 - **IDE**: Arduino IDE
 - **Bibliotecas**: PulseSensor Playground
 

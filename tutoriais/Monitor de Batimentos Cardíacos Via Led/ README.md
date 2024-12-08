@@ -215,7 +215,11 @@ Descreva os testes para validar cada parte do projeto:
 
 ## Referências
 
-Liste todas as referências e links úteis para guias, bibliotecas, e materiais adicionais que ajudem a complementar o tutorial.
+www.tinkercad.com
+
+https://www.tinkercad.com/things/diNXBp7jY2n-monitor-de-batimentos-cardiacos-com-alerta-via-led?sharecode=Eh0NAm455gc2cGZ-tbGXkeiGWD5VI6SkQIKg53SIBV0
+
+https://www.arduino.cc/en/software
 
 ---
 

@@ -223,4 +223,4 @@ https://www.arduino.cc/en/software
 
 ---
 
-Espero que esse modelo ajude a organizar o conteúdo e fornecer uma estrutura clara e completa para tutoriais de IoT no contexto da saúde.
+

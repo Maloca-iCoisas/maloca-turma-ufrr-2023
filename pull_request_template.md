@@ -2,65 +2,62 @@
 
 ## Descrição do Pull Request
 
-### O que foi implementado:
-<!-- Descreva brevemente as alterações propostas neste Pull Request, incluindo quais funcionalidades, correções ou melhorias foram introduzidas. -->
+**O que foi implementado:**
+- Sistema de monitoramento e gerenciamento de estoque de medicamentos com ESP32 e display OLED.
+- Funcionalidades principais de **Cadastro**, **Listagem** e **Retirada de Medicamentos** usando entrada via teclado matricial.
+- Interface de exibição com um menu inicial para navegação nas opções.
 
-- 
+**Contexto e Motivação:**
+O projeto visa otimizar a gestão de medicamentos em farmácias, permitindo o cadastro rápido de novos itens, consulta ao estoque e remoção de medicamentos, integrando os recursos da ESP32 com display OLED e teclado matricial. Este sistema pode ser expandido para armazenar dados em nuvem e adicionar mais sensores e atuadores.
 
-### Contexto e Motivação:
-<!-- Explique o problema ou a necessidade que levou a esta implementação, especialmente considerando o contexto de IoT na área da saúde. -->
-
-- 
+---
 
 ## Testes Realizados
 
-### Descrição dos Testes:
-<!-- Descreva os testes realizados, especialmente aqueles envolvendo sensores e atuadores, e as configurações utilizadas para verificar a funcionalidade. -->
+**Descrição dos Testes:**
+- **Teste do Teclado Matricial**: Verificação de cada tecla e mapeamento correto no sistema.
+- **Teste de Display**: Checagem da exibição de mensagens no display OLED, especialmente no menu inicial e nas telas de confirmação.
+- **Funcionalidade de Cadastro**: Cadastro de medicamentos com nomes e códigos digitados, garantindo que sejam armazenados corretamente.
+- **Listagem no Display**: Validação da apresentação de todos os medicamentos cadastrados no display.
+- **Retirada de Medicamentos**: Teste de exclusão de itens e atualização da lista, com exibição dos itens restantes.
 
-- 
+**Resultados dos Testes:**
+- Todos os testes retornaram resultados consistentes com as especificações. O sistema responde corretamente às teclas do teclado matricial, exibe mensagens claras no display e armazena dados conforme esperado.
 
-### Resultados dos Testes:
-<!-- Indique os resultados observados ao realizar os testes em placas como Arduino, Raspberry Pi e ESP32. -->
-
-- 
+---
 
 ## Checklist
 
-- [ ] Código atende às normas do projeto e foi formatado de acordo com as diretrizes.
-- [ ] Código foi testado e validado em ambiente de desenvolvimento com hardware real (Arduino, Raspberry Pi, ESP32) ou simulação (tinkercad).
-- [ ] Documentação atualizada para refletir as mudanças realizadas.
-- [ ] Código escrito e comentado em **C** ou **Python** de acordo com os padrões do projeto.
-- [ ] Testes com sensores e atuadores específicos incluídos e detalhados na descrição dos testes.
+- [x] Código atende às normas do projeto e foi formatado de acordo com as diretrizes.
+- [x] Código foi testado e validado em ambiente de desenvolvimento com ESP32 e display SSD1306.
+- [x] Documentação atualizada para refletir as mudanças realizadas.
+- [x] Código escrito e comentado em Python, de acordo com os padrões do projeto.
+- [x] Testes específicos com teclado matricial e display OLED incluídos e detalhados na descrição dos testes.
+
+---
 
 ## Tipo de Mudança
 
 - [ ] Correção de bug
-- [ ] Nova funcionalidade
+- [x] Nova funcionalidade
 - [ ] Alteração de funcionalidade existente
-- [ ] Documentação
-
-## Informações Adicionais
-
-### Hardware Utilizado:
-<!-- Liste o hardware específico (ex: Arduino Uno, ESP32) e os sensores ou atuadores associados a este PR. -->
-
-- 
-
-### Simulação Utilizado:
-<!-- Liste os componentes específico (ex: Arduino Uno, ESP32) e os sensores ou atuadores associados a este PR, bem como, o link da simulação. -->
-
--
-
-### Observações:
-<!-- Detalhes adicionais ou considerações que possam ajudar na revisão do código. -->
-
-- 
-
-## Issue Relacionada
-
-<!-- Se aplicável, mencione a issue relacionada a este PR (ex: `Closes #123`) -->
-Closes #
+- [x] Documentação
 
 ---
 
-**Nota:** Certifique-se de que o código e as descrições estejam claros e detalhados o suficiente para uma revisão eficaz.
+## Informações Adicionais
+
+**Hardware Utilizado:**
+- ESP32, Display OLED SSD1306, Teclado Matricial 4x4
+
+**Simulação Utilizada:**
+- Testes iniciais em ambiente de simulação no Tinkercad e validação em hardware real.
+
+**Observações:**
+- Esse PR implementa o núcleo do sistema. Futuras expansões podem incluir comunicação Wi-Fi e armazenamento remoto dos dados.
+
+---
+
+## Issue Relacionada
+
+Closes #

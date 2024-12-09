@@ -161,10 +161,11 @@ Sugestões para melhorar o projeto, como:
 
 ## Referências
 
-- Documentação do Arduino: https://www.arduino.cc/.
-- Tutoriais de circuitos com LEDs: https://www.blogdarobotica.com/2020/09/23/pisca-led-com-arduino-blink/.
-- https://docs.arduino.cc/built-in-examples/digital/Button/.
-
+1. Documentação do Arduino: https://www.arduino.cc/.
+2. Tutoriais de circuitos com LEDs: https://www.blogdarobotica.com/2020/09/23/pisca-led-com-arduino-blink/.
+3. Como conectar e programar um botão: https://docs.arduino.cc/built-in-examples/digital/Button/.
+4. Link da simulação: https://www.tinkercad.com/things/3pKFVvIszYg-sinal-com-2-leds-e-botao.
+   
 ---
 
 Este tutorial apresenta um sistema básico de controle de semáforo com botão, para controle do fluxo de pessoas em ambientes sensíveis.

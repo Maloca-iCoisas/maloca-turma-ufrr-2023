@@ -26,7 +26,7 @@ O objetivo deste projeto é construir um sistema de botão de pânico que emite 
 
 ## Requisitos  
 
-- **Atuadores**: Dois leds (Verde: Estado Normal; Vermelho: Estado Emergência);
+- **Atuadores**: Um led e um buzzer;
 - **Outros componentes**: Protoboard (fins educacionais), 5 resistores (3 de 330ohms e 2 de 1kohms), jumpers, 1 LCD, cabo usb.
 ### **Hardware:**  
    - **Placa**: Arduino Uno ou ESP32  

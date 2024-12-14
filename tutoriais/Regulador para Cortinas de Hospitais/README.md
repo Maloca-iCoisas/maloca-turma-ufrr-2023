@@ -74,9 +74,9 @@ Para montar o circuito, siga as instruções abaixo e se preciso analise o circu
 - Conecte o pino **5V** do Arduino ao pino da esquerda do potenciometro.
 
 
-<img src="Circuito 1.png" alt="circuito simulado" />
+<img src="Circuito 1.jpeg" alt="circuito simulado" />
 
-<img src="Circuito 2.png" alt="circuito simulado" />
+<img src="Circuito 2.jpeg" alt="circuito simulado" />
 circuito sem o protoboard
 
 ---

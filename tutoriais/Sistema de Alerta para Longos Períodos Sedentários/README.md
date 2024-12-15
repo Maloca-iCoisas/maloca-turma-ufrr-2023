@@ -19,7 +19,7 @@
 
 ## Introdução
 
-O propósito de um projeto de "Sistema de Alerta para Longos Períodos Sedentários" no contexto da saúde é combater os efeitos negativos do sedentarismo, promovendo a conscientização e incentivando a adoção de hábitos mais ativos. O sedentarismo é um fator de risco significativo para diversas doenças crônicas não transmissíveis.
+O propósito do projeto "Sistema de Alerta para Longos Períodos Sedentários" no contexto da saúde é combater os efeitos negativos do sedentarismo, promovendo a conscientização e incentivando a adoção de hábitos mais ativos. O sedentarismo é um fator de risco significativo para diversas doenças crônicas não transmissíveis.
 
 ---
 

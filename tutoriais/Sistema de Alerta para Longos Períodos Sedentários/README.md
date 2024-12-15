@@ -1,6 +1,6 @@
 # Título do Tutorial
 
-**Descrição:** Breve introdução ao tutorial, explicando o objetivo do projeto, as habilidades que serão adquiridas e o público-alvo. Ex.: "Neste tutorial, vamos desenvolver um sistema de monitoramento de sinais vitais usando uma ESP32 com sensores de temperatura e frequência cardíaca."
+**Descrição:** O tutorial ensina como simular um sistema de alerta para longos períodos sedentários usando o Tinkercad. A simulação usa um botão para representar a presença de uma pessoa sentada e um temporizador no código Arduino para monitorar quanto tempo essa pessoa permanece sentada. Quando o tempo pré-definido (tempo sedentário) é atingido, um alerta (representado por um LED e/ou um buzzer, que são opcionais) é ativado.
 
 ---
 
@@ -19,18 +19,17 @@
 
 ## Introdução
 
-Explique o propósito do projeto em um contexto de saúde. Por exemplo, o monitoramento de sinais vitais em tempo real para pacientes, ou um sistema de alarme para quedas. Inclua uma breve visão sobre como o projeto se integra ao ambiente IoT.
-
+O propósito do projeto de "Sistema de Alerta para Longos Períodos Sedentários" no contexto da saúde é combater os efeitos negativos do sedentarismo, promovendo a conscientização e incentivando a adoção de hábitos mais ativos. O sedentarismo é um fator de risco significativo para diversas doenças crônicas não transmissíveis.
 ---
 
 ## Requisitos
 
 ### Hardware
 
-- **Placa**: Arduino, ESP32, Raspberry Pi
-- **Sensores**: Detalhe cada sensor, como sensores de temperatura, oxímetro, acelerômetro, entre outros
-- **Atuadores**: Como LEDs, buzzer, relés, etc.
-- **Outros componentes**: Jumpers, resistores, display LCD, etc.
+- **Placa**: Arduino Uno
+- **Sensores**: Como o Tinkercad não oferece simulação realista de sensores de pressão ou movimento, usamos um botão como um substituto simplificado. Pressionar o botão simula a detecção da presença (pessoa sentada), e soltá-lo simula a ausência.
+- **Atuadores**: LED e buzzer.
+- **Outros componentes**: Jumpers, resistores e placa de ensaio pequena.
 
 ### Software
 

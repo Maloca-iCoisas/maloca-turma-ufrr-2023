@@ -19,7 +19,8 @@
 
 ## Introdução
 
-O propósito do projeto de "Sistema de Alerta para Longos Períodos Sedentários" no contexto da saúde é combater os efeitos negativos do sedentarismo, promovendo a conscientização e incentivando a adoção de hábitos mais ativos. O sedentarismo é um fator de risco significativo para diversas doenças crônicas não transmissíveis.
+O propósito de um projeto de "Sistema de Alerta para Longos Períodos Sedentários" no contexto da saúde é combater os efeitos negativos do sedentarismo, promovendo a conscientização e incentivando a adoção de hábitos mais ativos. O sedentarismo é um fator de risco significativo para diversas doenças crônicas não transmissíveis.
+
 ---
 
 ## Requisitos
@@ -27,15 +28,15 @@ O propósito do projeto de "Sistema de Alerta para Longos Períodos Sedentários
 ### Hardware
 
 - **Placa**: Arduino Uno
-- **Sensores**: Como o Tinkercad não oferece simulação realista de sensores de pressão ou movimento, usamos um botão como um substituto simplificado. Pressionar o botão simula a detecção da presença (pessoa sentada), e soltá-lo simula a ausência.
-- **Atuadores**: LED e buzzer.
+- **Sensores**: Como o Tinkercad não oferece simulação realista de sensores de pressão ou movimento, usamos um botão como um substituto simplificado. Pressionar o botão simula a detecção da presença (pessoa sentada), e soltá-lo simula a ausência. Para uma implementação realista, podemos usar o sensor PIR
+- **Atuadores**: LED e buzzer
 - **Outros componentes**: Jumpers, resistores e placa de ensaio pequena.
 
 ### Software
 
-- **Linguagens**: C/C++ para Arduino e ESP32, Python para Raspberry Pi
-- **IDE**: Arduino IDE, Thonny para Raspberry Pi, VS Code (opcional)
-- **Bibliotecas**: Liste as bibliotecas necessárias, como `Adafruit_Sensor`, `DHT`, entre outras.
+- **Linguagens**: C/C++ para Arduino
+- **IDE**: Arduino IDE
+- **Bibliotecas**: Não é necessário.
 
 ---
 
@@ -43,14 +44,8 @@ O propósito do projeto de "Sistema de Alerta para Longos Períodos Sedentários
 
 ### Passo 1: Instalação do Software
 
-- **Arduino IDE**: Instruções para instalar e configurar a IDE do Arduino para ESP32/Arduino.
-- **Thonny Python**: Configuração do Thonny para programar em Python no Raspberry Pi.
-- **Bibliotecas**: Como instalar as bibliotecas necessárias. Exemplo:
+- **Arduino IDE**: Instruções para instalar e configurar a IDE do Arduino para Arduino:
 
-```bash
-# Instalar bibliotecas do Python
-pip install Adafruit_DHT
-```
 
 ### Passo 2: Configuração das Placas
 

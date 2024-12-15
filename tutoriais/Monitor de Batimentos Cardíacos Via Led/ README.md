@@ -1,4 +1,4 @@
-# Título do Tutorial
+# Monitor de Batimentos Cardíacos com Alerta via LED
 
 **Descrição:** Este tutorial ensina como simular um monitor cardíaco simples usando um LED no Tinkercad e, em seguida, como adaptar o projeto para usar um sensor real com o Arduino IDE.
 

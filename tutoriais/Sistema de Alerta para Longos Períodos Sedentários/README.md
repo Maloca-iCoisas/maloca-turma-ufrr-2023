@@ -64,62 +64,165 @@ O propósito de um projeto de "Sistema de Alerta para Longos Períodos Sedentár
 
 ### Passo 2: Configuração das Placas
 
-- **Arduino/ESP32**: Passos para configurar a placa e selecionar a porta correta na IDE.
-- **Raspberry Pi**: Configuração do GPIO para comunicação com os sensores.
+- **Arduino**:
+1. Conecte a placa:
+  - Conecte sua placa Arduino ao computador usando um cabo USB.
+  - Importante: Certifique-se de que o cabo USB esteja em boas condições e seja adequado para transferência de dados (alguns cabos só servem para carregar).
+2. Abra o Arduino IDE:
+
+  - Inicie o software Arduino IDE no seu computador.
+3. Selecione a placa:
+
+  - Vá no menu "Ferramentas" > "Placa".
+  - Encontre o modelo da sua placa na lista e selecione-o.
+    - Exemplo: Se você estiver usando um Arduino Uno, selecione "Arduino Uno".
+    - Dica: Se você não encontrar sua placa na lista, pode ser necessário instalar o suporte para ela. Vá em "Ferramentas" > "Placa" >        "Gerenciador de Placas..." e procure pelo nome da sua placa.
+4. Selecione a porta:
+
+  - Vá no menu "Ferramentas" > "Porta".
+  - Selecione a porta serial à qual sua placa Arduino está conectada.
+    - Dica: A porta geralmente tem um nome como "COMX" (Windows) ou "/dev/ttyACMX" (Linux) ou "/dev/cu.usbmodemXXXX" (macOS), onde X é        um número.
+    - Dica 2: Se você não tiver certeza de qual porta é a correta, desconecte a placa do computador e veja qual porta desaparece da 
+      lista. Conecte a placa novamente e veja qual porta reaparece.
+5. Verifique a conexão:
+
+  - Na barra de status do Arduino IDE (parte inferior da janela), você deverá ver uma mensagem indicando a placa e a porta selecionada.
+    - Exemplo: "Placa Arduino/Genuino Uno na porta COM3".
+   ![IDE](https://github.com/user-attachments/assets/0b7b64c0-0a1e-40f0-836f-44f03c1cb586)
+
+
 
 ---
 
 ## Montagem do Circuito
 
-Insira um diagrama do circuito, ou descreva as conexões principais, incluindo onde cada sensor e atuador deve ser conectado. 
+1. Componentes Necessários no Tinkercad:
 
-> **Nota**: Use imagens ou diagramas para auxiliar a compreensão.
+- Arduino Uno R3: A placa controladora.
+- Protoboard (opcional, mas recomendado): Para facilitar as conexões.
+- Botão (Pushbutton): Para simular a detecção de presença (quando pressionado, simula a pessoa sentada).
+- Resistor de 10kΩ: Para o botão (resistor pull-down).
+- LED (opcional): Para feedback visual do alerta.
+- Buzzer (opcional): Para um alerta sonoro.
+2. Montagem do Circuito:
+
+**Botão:**
+- Conecte um terminal do botão a um pino digital do Arduino (ex: Pino 2).
+- Conecte o outro terminal do botão a um resistor de 10kΩ.
+- Conecte a outra extremidade do resistor ao GND do Arduino.
+- Conecte um fio do mesmo terminal do botão que está conectado ao resistor para o GND do Arduino. Esta configuração é um "pull-down resistor".
+**LED:**
+- Conecte o terminal positivo (ânodo) do LED a um pino digital do Arduino (Pino 13) através de um resistor de 220Ω (para limitar a corrente e proteger o LED).
+- Conecte o terminal negativo (cátodo) do LED ao GND do Arduino.
+**Buzzer:**
+- Conecte o terminal positivo do buzzer a um pino digital do Arduino (Pino 8).
+- Conecte o terminal negativo do buzzer ao GND do Arduino.
+  ![imagem2](https://github.com/user-attachments/assets/3ede1b72-8d7a-4914-b202-97051a7241e4)
+
+
+**Com sensor PIR**
+Para um teste realista, você pode remover o botão e adicionar o sensor PIR, lembrando que no TinkerCad apresenta falhas.
+- Conexão do sensor PIR:
+
+  - VCC: Conecte ao 5V do Arduino.
+  - GND: Conecte ao GND do Arduino.
+  - OUT (Sinal): Conecte ao pino digital 2 (no nosso exemplo) do Arduino.
+    ![imagem1](https://github.com/user-attachments/assets/8d36b933-6f50-4844-b43c-4421de6c2304)
+
 
 ---
 
 ## Programação
 
-### Passo 1: Configuração dos Sensores e Atuadores
+### Passo 1: Configuração do botão e Atuadores
 
-Forneça o código para a configuração dos sensores. Por exemplo, para medir temperatura e batimentos cardíacos:
 
-**Exemplo em C para ESP32:**
+**C++ para Arduino UNO utilizando o botão:**
 
-```cpp
-#include <DHT.h>
+```c++
+const int buttonPin = 2;    // Pino conectado ao botão
+const int ledPin = 13;     // Pino conectado ao LED (opcional)
+const int buzzerPin = 8;  // Pino conectado ao buzzer (opcional)
 
-#define DHTPIN 2     // Pino do sensor DHT
-#define DHTTYPE DHT11 
-
-DHT dht(DHTPIN, DHTTYPE);
+unsigned long startTime = 0; // Variável para armazenar o tempo inicial
+const unsigned long sedentaryTime = 5000; // Tempo sedentário em milissegundos (ex: 5000ms = 5 segundos para teste. Ajuste para minutos no seu projeto real. Ex: 60000ms = 1 minuto, 300000ms= 5 minutos, etc).
+bool isSedentary = false;    // Variável para controlar o estado sedentário
 
 void setup() {
   Serial.begin(9600);
-  dht.begin();
+  pinMode(buttonPin, INPUT_PULLUP); // Define o pino do botão como entrada com pull-up interno
+  pinMode(ledPin, OUTPUT);       // Define o pino do LED como saída
+  pinMode(buzzerPin, OUTPUT);    // Define o pino do buzzer como saída
 }
 
 void loop() {
-  float temp = dht.readTemperature();
-  Serial.println(temp);
-  delay(2000);
+  int buttonState = digitalRead(buttonPin);
+
+  if (buttonState == LOW) { // Botão pressionado (simula a pessoa sentada)
+    if (!isSedentary) {    // Verifica se o estado sedentário já não foi iniciado
+      startTime = millis(); // Registra o tempo atual
+      isSedentary = true;  // Marca como estado sedentário
+      Serial.println("Iniciou tempo sedentário.");
+    }
+  } else {               // Botão não pressionado (pessoa se levantou)
+    if (isSedentary) {      // Verifica se estava em estado sedentário
+      isSedentary = false;   // Reseta o estado sedentário
+      Serial.println("Tempo sedentário interrompido.");
+    }
+  }
+
+  if (isSedentary && (millis() - startTime >= sedentaryTime)) {
+    // Tempo sedentário atingido
+    Serial.println("ALERTA: Longo período sedentário!");
+    digitalWrite(ledPin, HIGH);  // Liga o LED (opcional)
+    tone(buzzerPin, 1000, 500); // Toca o buzzer por 500ms (opcional)
+    delay(5000); // Pequena pausa antes de checar novamente. Evita que o alerta se repita muito rapidamente.
+    digitalWrite(ledPin, LOW); // Desliga o LED após o alerta.
+  }
 }
 ```
 
-**Exemplo em Python para Raspberry Pi:**
+**C++ para Arduino UNO utilizando o sensor PIR:**
 
-```python
-import Adafruit_DHT
+```c++
+#define PIR_PIN 2      // Pino do sensor PIR
+#define LED_PIN 13      // Pino do LED
+#define BUZZER_PIN 8   // Pino do Buzzer
 
-sensor = Adafruit_DHT.DHT11
-pin = 4  # Pino GPIO
+unsigned long previousMillis = 0;    // Armazena o tempo anterior
+const long alertInterval = 10000;    // Tempo limite: 10 segundos para testes
 
-humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-print(f"Temperatura: {temperature}ºC")
+void setup() {
+  pinMode(PIR_PIN, INPUT);          // Configura o sensor PIR como entrada
+  pinMode(LED_PIN, OUTPUT);         // Configura o LED como saída
+  pinMode(BUZZER_PIN, OUTPUT);      // Configura o buzzer como saída
+  Serial.begin(9600);               // Inicializa a comunicação serial
+}
+
+void loop() {
+  int pirState = digitalRead(PIR_PIN);  // Lê o estado do sensor PIR
+
+  if (pirState == HIGH) {   // Movimento detectado
+    Serial.println("Movimento detectado! Resetando timer...");
+    previousMillis = millis();       // Reseta o tempo
+    digitalWrite(LED_PIN, LOW);      // Desliga o LED
+    digitalWrite(BUZZER_PIN, LOW);   // Desliga o buzzer
+  } else {
+    // Verifica o tempo sem movimento
+    if (millis() - previousMillis >= alertInterval) {
+      Serial.println("Tempo limite excedido! ALERTA!");
+      digitalWrite(LED_PIN, HIGH);   // Liga o LED
+      digitalWrite(BUZZER_PIN, HIGH);// Liga o buzzer
+    }
+  }
+}
+
 ```
 
 ### Passo 2: Processamento e Lógica de Alerta
 
-Adicione a lógica para processar os dados e acionar atuadores, como LEDs ou buzzer, caso as leituras excedam um determinado limite.
+- Monitoramento de Tempo Sedentário: O código rastreia quanto tempo o usuário permanece sentado (botão pressionado) e emite um alerta se o tempo exceder um determinado limite.
+- Atuadores Simples: O código usa um LED e um buzzer para indicar o alerta, mas a ativação destes ocorre com base no tempo, e não em dados de um sensor externo.
 
 ---
 

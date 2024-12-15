@@ -45,6 +45,21 @@ O propósito de um projeto de "Sistema de Alerta para Longos Períodos Sedentár
 ### Passo 1: Instalação do Software
 
 - **Arduino IDE**: Instruções para instalar e configurar a IDE do Arduino para Arduino:
+  - Selecione o sistema operacional do seu computador (Windows, macOS ou Linux).
+  - Escolha a opção de download que preferir:
+    - Instalador: Recomendado para a maioria dos usuários. Faz o download de um arquivo executável que instala o IDE automaticamente.
+    - Arquivo ZIP: Para quem prefere instalar manualmente ou não tem permissão de administrador.
+    - Windows App: Disponível na Microsoft Store.
+  - 2.Instalação:
+    - Execute o arquivo executável baixado (.exe).
+    - Siga as instruções do instalador, aceitando os termos de licença e escolhendo o local de instalação.
+    - Marque as opções para instalar drivers USB durante a instalação.
+  - 3.Verificação da instalação
+    - Abra o Arduino IDE.
+    - Conecte sua placa Arduino ao computador com um cabo USB.
+    - Vá em "Ferramentas" > "Placa" e selecione o modelo da sua placa.
+    - Vá em "Ferramentas" > "Porta" e selecione a porta serial à qual sua placa está conectada.
+    - Se tudo estiver correto, você verá a mensagem "Placa Arduino/Genuino Uno na porta COMX" (onde X é o número da porta) na barra de status do Arduino IDE.
 
 
 ### Passo 2: Configuração das Placas

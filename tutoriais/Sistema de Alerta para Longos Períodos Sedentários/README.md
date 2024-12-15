@@ -105,18 +105,17 @@ O propósito de um projeto de "Sistema de Alerta para Longos Períodos Sedentár
 - LED (opcional): Para feedback visual do alerta.
 - Buzzer (opcional): Para um alerta sonoro.
 2. Montagem do Circuito:
-
-**Botão:**
-- Conecte um terminal do botão a um pino digital do Arduino (ex: Pino 2).
-- Conecte o outro terminal do botão a um resistor de 10kΩ.
-- Conecte a outra extremidade do resistor ao GND do Arduino.
-- Conecte um fio do mesmo terminal do botão que está conectado ao resistor para o GND do Arduino. Esta configuração é um "pull-down resistor".
-**LED:**
-- Conecte o terminal positivo (ânodo) do LED a um pino digital do Arduino (Pino 13) através de um resistor de 220Ω (para limitar a corrente e proteger o LED).
-- Conecte o terminal negativo (cátodo) do LED ao GND do Arduino.
-**Buzzer:**
-- Conecte o terminal positivo do buzzer a um pino digital do Arduino (Pino 8).
-- Conecte o terminal negativo do buzzer ao GND do Arduino.
+- **Botão:**
+  - Conecte um terminal do botão a um pino digital do Arduino (ex: Pino 2).
+  - Conecte o outro terminal do botão a um resistor de 10kΩ.
+  - Conecte a outra extremidade do resistor ao GND do Arduino.
+  - Conecte um fio do mesmo terminal do botão que está conectado ao resistor para o GND do Arduino. Esta configuração é um "pull-down resistor".
+- **LED:**
+  - Conecte o terminal positivo (ânodo) do LED a um pino digital do Arduino (Pino 13) através de um resistor de 220Ω (para limitar a corrente e proteger o LED).
+  - Conecte o terminal negativo (cátodo) do LED ao GND do Arduino.
+- **Buzzer:**
+  - Conecte o terminal positivo do buzzer a um pino digital do Arduino (Pino 8).
+  - Conecte o terminal negativo do buzzer ao GND do Arduino.
   ![imagem2](https://github.com/user-attachments/assets/3ede1b72-8d7a-4914-b202-97051a7241e4)
 
 

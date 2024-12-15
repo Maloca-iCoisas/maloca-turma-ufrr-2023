@@ -229,26 +229,25 @@ void loop() {
 ## Teste e Validação
 
 
-1. **Testando Sensores**: Verifique se ao pressionar o botão inicia a contagem do sedentárismo.
-2. **Validação dos Atuadores**: Verifique se o Piezo Buzzer e o Led estão corretamente conectados aos pinos designados e com a polaridade adequada.
-3. **Monitoramento em Tempo Real**: Teste o sistema completo em condições simuladas para garantir que funciona conforme o esperado.
+1. **Testando Sensores**: Verifique se ao manter pressionado o botão inicia a contagem do sedentárismo.
+2. **Validação dos Atuadores**: Verifique se o Piezo Buzzer e o Led estão corretamente conectados aos pinos designados e com a polaridade adequada e se emitem sinal após 5s pressionado o botão.
+3. **Monitoramento em Tempo Real**: Solte o botão e veja se a mensagem de alerta no monitor serial some.
 
 ---
 
 ## Expansões e Melhorias
 
-Sugestões para melhorar o projeto, como:
-
-- Adicionar comunicação Wi-Fi (ESP32) para enviar dados para uma nuvem.
-- Integrar um banco de dados para registro das leituras.
-- Conectar-se a uma aplicação móvel para visualização remota.
-
+1. Registro de Dados:
+   - Coletar dados para análise posterior, como o tempo total sedentário por dia ou a frequência de curtas pausas.
+2. Alertas Personalizados:
+   - Utilizar múltiplos LEDs ou buzzers para criar padrões de alerta diferentes.
+4. Comunicação Sem Fio:
+   - Utilizar módulos como ESP8266 ou ESP32 para conectar o Arduino a uma rede Wi-Fi.
 ---
 
 ## Referências
+**Circuito no TinkerCad:** https://www.tinkercad.com/things/8FClpFf9EWv-sistema-de-alerta-para-longos-periodos-sedentarios?sharecode=Zpl3WqcMFhq8bdAn2_clb2JxbfDfw27Iq9NZaWDxd3A
 
-Liste todas as referências e links úteis para guias, bibliotecas, e materiais adicionais que ajudem a complementar o tutorial.
+**Arduino IDE:** www.arduino.cc/en/software
 
----
 
-Espero que esse modelo ajude a organizar o conteúdo e fornecer uma estrutura clara e completa para tutoriais de IoT no contexto da saúde.

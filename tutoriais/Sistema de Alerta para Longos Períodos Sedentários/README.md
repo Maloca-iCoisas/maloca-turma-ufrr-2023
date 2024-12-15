@@ -228,9 +228,8 @@ void loop() {
 
 ## Teste e Validação
 
-Descreva os testes para validar cada parte do projeto:
 
-1. **Testando Sensores**: Verifique se as leituras são consistentes e corretas.
+1. **Testando Sensores**: Verifique se ao pressionar o botão inicia a contagem do sedentárismo.
 2. **Validação dos Atuadores**: Verifique se o Piezo Buzzer e o Led estão corretamente conectados aos pinos designados e com a polaridade adequada.
 3. **Monitoramento em Tempo Real**: Teste o sistema completo em condições simuladas para garantir que funciona conforme o esperado.
 

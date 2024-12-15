@@ -1,4 +1,4 @@
-# Título do Tutorial
+# Sistema de Alerta para Longos Períodos Sedentários
 
 **Descrição:** O tutorial ensina como simular um sistema de alerta para longos períodos sedentários usando o Tinkercad. A simulação usa um botão para representar a presença de uma pessoa sentada e um temporizador no código Arduino para monitorar quanto tempo essa pessoa permanece sentada. Quando o tempo pré-definido (tempo sedentário) é atingido, um alerta (representado por um LED e um buzzer) é ativado.
 

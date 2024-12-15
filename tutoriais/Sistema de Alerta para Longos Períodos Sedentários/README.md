@@ -231,7 +231,7 @@ void loop() {
 Descreva os testes para validar cada parte do projeto:
 
 1. **Testando Sensores**: Verifique se as leituras são consistentes e corretas.
-2. **Validação dos Atuadores**: Confirme que os atuadores funcionam corretamente.
+2. **Validação dos Atuadores**: Verifique se o Piezo Buzzer e o Led estão corretamente conectados aos pinos designados e com a polaridade adequada.
 3. **Monitoramento em Tempo Real**: Teste o sistema completo em condições simuladas para garantir que funciona conforme o esperado.
 
 ---

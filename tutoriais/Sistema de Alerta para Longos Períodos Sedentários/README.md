@@ -44,7 +44,7 @@ O propósito de um projeto de "Sistema de Alerta para Longos Períodos Sedentár
 
 ### Passo 1: Instalação do Software
 
-- **Arduino IDE**: Instruções para instalar e configurar a IDE do Arduino para Arduino:
+- **Arduino IDE**: Acesse o site oficial do Arduino: www.arduino.cc/en/software
   - Selecione o sistema operacional do seu computador (Windows, macOS ou Linux).
   - Escolha a opção de download que preferir:
     - Instalador: Recomendado para a maioria dos usuários. Faz o download de um arquivo executável que instala o IDE automaticamente.

@@ -159,8 +159,9 @@ void loop() {
   
  - **Verificação do buzzer:** Ajuste o buzzer conforme a sua necessidade. Utilize o campo *tone* no código para ajustar tonalidade e repetição do som emitido.
 
- - **Teste em ambientes:** Faça o teste em lugares que o sistema possa ficar de maneira estratégica e que consiga executar sua função. Faça o teste com o gás de cozinha, é mais comum de ser encontrado, e faça ajustes no campo *limite_gas* do código para se adequar ao limite na qual você esteja buscando, conforme seu objetivo.
-Acionamento do sistema: Verifique se, quando exposto ao gás, o sensor é capaz de detectá-lo e se o sistema será capaz de acionar os gatilhos de ativação do LED e buzzer. Você pode verificar isso no Serial Monitor do Tinkercad ou no Arduino IDE.
+ - **Teste em ambientes:** Faça o teste em lugares que o sistema possa ficar de maneira estratégica e que consiga executar sua função. Faça o teste com o gás de cozinha, que é mais comum de ser encontrado, e faça ajustes no campo *limite_gas* do código para se adequar ao limite de gás esperado, conforme seu objetivo.
+
+- **Acionamento do sistema:** Verifique se, quando exposto ao gás, o sensor é capaz de detectá-lo e se o sistema será capaz de acionar os gatilhos de ativação do LED e buzzer. Você pode verificar isso no Serial Monitor do Tinkercad ou no Arduino IDE.
 
 ---
 </br>

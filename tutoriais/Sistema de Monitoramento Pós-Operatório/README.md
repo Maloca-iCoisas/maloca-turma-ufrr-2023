@@ -6,22 +6,14 @@
 
 ## Índice
 
-- [Sistema de Monitoramento de Pacientes em Períodos Pós-Operatórios](#sistema-de-monitoramento-de-pacientes-em-períodos-pós-operatórios)
-  - [Índice](#índice)
-  - [Introdução](#introdução)
-  - [Requisitos](#requisitos)
-    - [Hardware](#hardware)
-    - [Software](#software)
-  - [Configuração do Ambiente](#configuração-do-ambiente)
-    - [Passo 1: Instalação do Software](#passo-1-instalação-do-software)
-    - [Passo 2: Configuração das Placas](#passo-2-configuração-das-placas)
-  - [Montagem do Circuito](#montagem-do-circuito)
-  - [Programação](#programação)
-    - [Passo 1: Configuração dos Sensores e Atuadores](#passo-1-configuração-dos-sensores-e-atuadores)
-    - [Passo 2: Processamento e Lógica de Alerta](#passo-2-processamento-e-lógica-de-alerta)
-  - [Teste e Validação](#teste-e-validação)
-  - [Expansões e Melhorias](#expansões-e-melhorias)
-  - [Referências](#referências)
+1. [Introdução](#introdução)
+2. [Requisitos](#requisitos)
+3. [Configuração do Ambiente](#configuração-do-ambiente)
+4. [Montagem do Circuito](#montagem-do-circuito)
+5. [Programação](#programação)
+6. [Teste e Validação](#teste-e-validação)
+7. [Expansões e Melhorias](#expansões-e-melhorias)
+8. [Referências](#referências)
 
 ---
 

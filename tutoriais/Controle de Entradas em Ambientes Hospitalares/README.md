@@ -46,8 +46,12 @@ Servidor Central: Armazena os dados e gera relatórios.
 - Arduino IDE: Baixe e instale o Arduino IDE a partir do https://www.arduino.cc/en/software.
 - Adicionar a ESP32 no Gerenciador de Placas do Arduino IDE.
 - Instalar as bibliotecas necessárias.
-- Criar um banco de dados Firebase para armazenar os registros.
-- Configurar APIs para envio de dados via HTTP.
+- Criar um banco de dados Firebase para armazenar os registros:  
+Acesse o Firebase Console e crie um novo projeto. 
+Vá em Build > Realtime Database e clique em Criar Banco de Dados.  
+Escolha um local (exemplo: us-central1) e selecione modo de teste para evitar problemas de permissão.  
+Vá em Configurações do Projeto > Contas de Serviço e copie a Chave da API.  
+- Configurar APIs para envio de dados via HTTP.  
 
 
 ### Passo 2: Configuração da Placa e Porta
@@ -55,16 +59,19 @@ Conecte o Arduino ao computador via USB.
 No Arduino IDE, vá em Ferramentas > Placa e selecione Arduino Uno.
 Em Ferramentas > Porta, escolha a porta correspondente ao Arduino conectado, como mostra a imagem abaixo: 
 
+![image](https://github.com/user-attachments/assets/85910db9-eee0-470c-a68b-8070bf18dfce)
 
 
 ## Montagem do Circuito
 
 Conecte o sensor de temperatura ao Arduino conforme o esquema abaixo:
 
-VCC do RFID ao pino 5V do ESP32.  
-GND do RFID ao GND do ESP32.  
+VCC do RFID ao pino 3.3V do ESP32.  
+GND do RFID ao GND do ESP32.   
 SDA conectado ao pino 22 do ESP32.  
 SCL conectado ao pino 21 do ESP32.  
+
+![Simulacao_Sistema_Seguranca](https://github.com/user-attachments/assets/1010b039-9b66-41b5-8721-e0f27da28697)
 
 ---
 
@@ -74,24 +81,141 @@ SCL conectado ao pino 21 do ESP32.
 Código em C para Arduino:
 
 ```cpp
+#include <WiFi.h>
+#include <FirebaseESP32.h>
+#include <Wire.h>
 #include <Adafruit_PN532.h>
+#include "time.h"
 
-// Definição dos pinos do PN532
-#define SDA_PIN 22
-#define SCL_PIN 21
+// Configurações do Wi-Fi
+#define WIFI_SSID "SEU_WIFI"
+#define WIFI_PASSWORD "SUA_SENHA"
 
-// Inicialização do módulo PN532 (I2C padrão)
+// Configuração do Firebase
+#define FIREBASE_HOST "SEU_FIREBASE.firebaseio.com"
+#define FIREBASE_AUTH "SEU_FIREBASE_AUTH_KEY"
+
+FirebaseData firebaseData;
+
+// Configuração do sensor RFID PN532 via I2C
+#define SDA_PIN 21
+#define SCL_PIN 22
 Adafruit_PN532 nfc(SDA_PIN, SCL_PIN);
+
+// Definição dos pinos do LED e Buzzer
+#define BUZZER_PIN 23
+#define LED_PIN 2
+
+// Lista de cartões autorizados (substitua pelos UIDs reais)
+const String IDsPermitidos[] = {"A1B2C3D4", "11223344"};
+
+// Configuração do servidor NTP para obter horário
+const char* ntpServer = "pool.ntp.org";
+long gmtOffset_sec = -10800; // UTC-3 para Brasil
+int daylightOffset_sec = 3600; 
 
 void setup() {
     Serial.begin(115200);
+
+    // Inicializa Wi-Fi
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("Conectando ao Wi-Fi");
+    while (WiFi.status() != WL_CONNECTED) {
+        Serial.print(".");
+        delay(1000);
+    }
+    Serial.println("\nConectado ao Wi-Fi!");
+
+    // Inicializa Firebase
+    Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+    Firebase.reconnectWiFi(true);
+    
+    // Inicializa o sensor RFID
+    Wire.begin(SDA_PIN, SCL_PIN);
     nfc.begin();
-    uint32_t versiondata = nfc.getFirmwareVersion();
-    if (!versiondata) {
-        Serial.println("Falha ao encontrar PN532");
+    if (!nfc.getFirmwareVersion()) {
+        Serial.println("Erro: Não foi possível detectar o PN532!");
         while (1);
     }
     nfc.SAMConfig();
+
+    // Configurações dos pinos do LED e Buzzer
+    pinMode(BUZZER_PIN, OUTPUT);
+    pinMode(LED_PIN, OUTPUT);
+
+    // Sincroniza horário
+    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+    
+    Serial.println("Sistema pronto para leitura de cartões!");
+}
+
+void loop() {
+    Serial.println("Aproxime um cartão...");
+
+    // Aguarda um cartão RFID ser detectado
+    if (!nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, NULL, 0)) {
+        delay(500);
+        return;
+    }
+
+    // Lê UID do cartão detectado
+    uint8_t uid[7]; 
+    uint8_t uidLength;
+    
+    if (!nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLength)) {
+        Serial.println("Erro na leitura do cartão!");
+        return;
+    }
+
+    // Converte UID para String
+    String cardID = "";
+    for (uint8_t i = 0; i < uidLength; i++) {
+        cardID += String(uid[i], HEX);
+    }
+
+    Serial.print("Cartão detectado: ");
+    Serial.println(cardID);
+
+    // Verifica se o cartão está autorizado
+    bool autorizado = false;
+    for (String id : IDsPermitidos) {
+        if (cardID.equalsIgnoreCase(id)) {
+            autorizado = true;
+            break;
+        }
+    }
+
+    if (autorizado) {
+        Serial.println("Acesso autorizado!");
+        digitalWrite(LED_PIN, HIGH);
+        delay(1000);
+        digitalWrite(LED_PIN, LOW);
+    } else {
+        Serial.println("Acesso negado!");
+        digitalWrite(BUZZER_PIN, HIGH);
+        delay(1000);
+        digitalWrite(BUZZER_PIN, LOW);
+    }
+
+    // Obtém data e hora atual
+    struct tm timeinfo;
+    if (!getLocalTime(&timeinfo)) {
+        Serial.println("Erro ao obter horário!");
+        return;
+    }
+
+    char timeString[30];
+    strftime(timeString, sizeof(timeString), "%Y-%m-%d %H:%M:%S", &timeinfo);
+    String dataHora = String(timeString);
+
+    // Envia os dados para o Firebase
+    String path = "/registros/" + cardID + "/" + dataHora;
+    Firebase.setString(firebaseData, path, autorizado ? "Autorizado" : "Negado");
+
+    Serial.println("Registro enviado ao Firebase!");
+
+    delay(2000);
+}
 
 ```
 ---
@@ -117,6 +241,6 @@ Sugestões para melhorar o projeto, como:
 
 ## Referências
 
-- Link da simulação:  
+- Link da simulação: https://wokwi.com/projects/423637992584440833  
 - Documentação do Arduino: https://www.arduino.cc/.  
 ---

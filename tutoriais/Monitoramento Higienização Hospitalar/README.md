@@ -25,8 +25,8 @@ Sensores: Capturam dados de proximidade e uso da estação.
 Microcontrolador (ESP32): Recebe os dados e os transmite via Wi-Fi. 
 
 - **Placa**: Arduino.
-- **Sensores**: Sensor PIR e Sensor HC-SR04.
-- **Outros componentes**: Jumpers, resistores, buzzer e led, fonte de alimentação (bateria ou usb). 
+- **Sensores**: Sensor HC-SR04.
+- **Outros componentes**: Jumpers, buzzer e fonte de alimentação (bateria ou usb). 
 
 ### Software
 Servidor Central: Armazena os dados e gera relatórios. 
@@ -47,18 +47,19 @@ Conecte o Arduino ao computador via USB.
 No Arduino IDE, vá em Ferramentas > Placa e selecione Arduino Uno.
 Em Ferramentas > Porta, escolha a porta correspondente ao Arduino conectado, como mostra a imagem abaixo: 
 
-
+![image](https://github.com/user-attachments/assets/85910db9-eee0-470c-a68b-8070bf18dfce)
 
 ## Montagem do Circuito
 
 Conecte o sensor de temperatura ao Arduino conforme o esquema abaixo:
 
-VCC do HC-SR04 ao pino 5V do Arduino.
-GND do HC-SR04 ao GND do Arduino.
-TRIG do HC-SR04 ao pino digital D5 do Arduino.
-ECHO do HC-SR04 ao pino digital D18 do Arduino.
+VCC do HC-SR04 ao pino 5V do Arduino.  
+GND do HC-SR04 ao GND do Arduino.  
+TRIG do HC-SR04 ao pino digital D5 do Arduino.  
+ECHO do HC-SR04 ao pino digital D18 do Arduino.  
 
-Use imagens ou diagramas para auxiliar a compreensão.
+![image](https://github.com/user-attachments/assets/fb157194-3df4-4bc8-8cfa-bd6c3020bf56)
+
 
 ---
 
@@ -160,7 +161,7 @@ Sugestões para melhorar o projeto, como:
 
 ## Referências
 
-- Link da simulação:  
+- Link da simulação: https://wokwi.com/projects/423647896874995713
 - Documentação do Arduino: https://www.arduino.cc/.  
 - Documentação do sensor HC-SR04: https://docs.arduino.cc/libraries/hcsr04-ultrasonic-sensor/  
 ---
